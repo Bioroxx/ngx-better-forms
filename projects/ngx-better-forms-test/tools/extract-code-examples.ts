@@ -44,10 +44,7 @@ async function copy() {
     const isTS = filePath.endsWith('.ts');
 
     if (isHTML) {
-      if (
-        !fileContent.startsWith('<!-- @documented -->') &&
-        !fileContent.startsWith('<!--@documented-->')
-      ) {
+      if (!fileContent.startsWith('<!-- @documented -->') && !fileContent.startsWith('<!--@documented-->')) {
         continue;
       }
       const snippet = extractBetweenHTMLComments(fileContent);
@@ -64,7 +61,7 @@ async function copy() {
       }
 
       const snippet = extractBetweenTSComments(fileContent);
-      const snippetFormatted = await format(snippet, { parser: 'typescript' });
+      const snippetFormatted = await format(snippet, { parser: 'typescript', singleQuote: true });
 
       writeFileSync(
         'projects/ngx-better-forms-test/public/code-examples/' + fileName + '.ts.txt',

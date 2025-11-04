@@ -1,0 +1,27 @@
+<!-- @documented -->
+<app-example-card [title]="title" [exampleName]="fileName">
+  <!-- @doc-start -->
+  <form [formGroup]="formGroup" class="flex flex-col gap-3 p-3">
+    <div class="flex flex-col">
+      <label class="font-medium" for="field1">Field 1</label>
+      <input
+        formControlName="field1"
+        type="text"
+        pInputText
+        id="field1"
+        autocomplete="off"
+        placeholder="Type 'a' or 'b' to disable Field 2"
+      />
+    </div>
+
+    <div class="flex flex-col">
+      <label class="font-medium" for="field2">Field 2</label>
+      <input formControlName="field2" type="text" pInputText id="field2" autocomplete="off" placeholder="" />
+    </div>
+  </form>
+  <!-- @doc-end -->
+  <ng-template #description>
+    Disable a target <span class="inline-code">formControl</span> of a <span class="inline-code">formGroup</span>, based
+    on some conditions.
+  </ng-template>
+</app-example-card>

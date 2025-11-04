@@ -1,37 +1,22 @@
 // @documented
 import { Component, inject } from '@angular/core';
 import { InputText } from 'primeng/inputtext';
-import { Panel } from 'primeng/panel';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
-import { BetterValidation, ConditionMode } from '../../../../../ngx-better-forms/src/public-api';
-import { Divider } from 'primeng/divider';
+import { BetterValidation, ConditionMode } from '../../../../../../ngx-better-forms/src/public-api';
 import { Message } from 'primeng/message';
 
-import { FormatErrorsPipe } from '../../core/pipe/format-errors-pipe';
-import { CodeSnippetExample } from '../../core/component/code-snippet-example/code-snippet-example';
-import { Tab, TabList, TabPanel, TabPanels, Tabs } from 'primeng/tabs';
-import { Documented } from '../../core/interface/documented';
+import { FormatErrorsPipe } from '../../../core/pipe/format-errors-pipe';
+import { Documented } from '../../../core/interface/documented';
+import { ExampleCard } from '../../../core/component/example-card/example-card';
 
 @Component({
-  selector: 'app-better-validation-documentation',
-  imports: [
-    InputText,
-    Panel,
-    ReactiveFormsModule,
-    Divider,
-    Message,
-    FormatErrorsPipe,
-    CodeSnippetExample,
-    Tabs,
-    TabList,
-    Tab,
-    TabPanels,
-    TabPanel,
-  ],
-  templateUrl: './better-validation-conditional-example.html',
+  selector: 'app-better-validation-conditional-validators-example',
+  imports: [InputText, ReactiveFormsModule, Message, FormatErrorsPipe, ExampleCard],
+  templateUrl: './better-validation-conditional-validators-example.html',
 })
-export class BetterValidationConditionalExample implements Documented {
-  fileName = 'better-validation-conditional-example';
+export class BetterValidationConditionalValidatorsExample implements Documented {
+  title = 'Conditional Validators';
+  fileName = 'better-validation-conditional-validators-example';
 
   private readonly formBuilder = inject(FormBuilder);
 

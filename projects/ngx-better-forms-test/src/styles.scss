@@ -1,6 +1,12 @@
 @use './tailwind.css';
 @import 'prism-material-themes/themes/material-default.css';
 
+@layer components {
+  .inline-code {
+    @apply font-mono bg-gray-100 text-gray-800 px-1 rounded inline;
+  }
+}
+
 :root {
   font-size: 14px;
 }

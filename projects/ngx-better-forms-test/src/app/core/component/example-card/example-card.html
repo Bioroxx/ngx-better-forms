@@ -1,0 +1,29 @@
+<div class="w-full flex flex-col gap-3 mb-5">
+  <h2>{{ title }}</h2>
+  <div class="block">
+    <ng-container *ngTemplateOutlet="descriptionTemplate"></ng-container>
+  </div>
+  <p-panel header="Example">
+    <ng-content></ng-content>
+  </p-panel>
+  <p-panel header="Code">
+    <p-tabs value="1">
+      <p-tablist>
+        <p-tab value="0">HTML</p-tab>
+        <p-tab value="1">TS</p-tab>
+      </p-tablist>
+      <p-tabpanels>
+        <p-tabpanel value="0">
+          <p class="m-0">
+            <app-code-snippet type="HTML" [exampleName]="exampleName"></app-code-snippet>
+          </p>
+        </p-tabpanel>
+        <p-tabpanel value="1">
+          <p class="m-0">
+            <app-code-snippet type="TS" [exampleName]="exampleName"></app-code-snippet>
+          </p>
+        </p-tabpanel>
+      </p-tabpanels>
+    </p-tabs>
+  </p-panel>
+</div>

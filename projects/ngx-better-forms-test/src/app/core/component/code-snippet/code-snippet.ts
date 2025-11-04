@@ -4,11 +4,11 @@ import Prism from 'prismjs';
 import 'prismjs/components/prism-typescript';
 
 @Component({
-  selector: 'app-code-snippet-example',
+  selector: 'app-code-snippet',
   imports: [],
-  templateUrl: './code-snippet-example.html',
+  templateUrl: './code-snippet.html',
 })
-export class CodeSnippetExample implements AfterViewInit {
+export class CodeSnippet implements AfterViewInit {
   @ViewChild('pre') pre?: ElementRef;
   @ViewChild('code') code?: ElementRef<HTMLElement>;
 
@@ -22,13 +22,9 @@ export class CodeSnippetExample implements AfterViewInit {
 
   ngAfterViewInit() {
     if (this.type === 'HTML') {
-      this.exampleService
-        .getHTMLSnippet(this.exampleName)
-        .subscribe((snippet) => this.setCodeAndHighlight(snippet));
+      this.exampleService.getHTMLSnippet(this.exampleName).subscribe((snippet) => this.setCodeAndHighlight(snippet));
     } else if (this.type === 'TS') {
-      this.exampleService
-        .getTSSnippet(this.exampleName)
-        .subscribe((snippet) => this.setCodeAndHighlight(snippet));
+      this.exampleService.getTSSnippet(this.exampleName).subscribe((snippet) => this.setCodeAndHighlight(snippet));
     }
   }
 
