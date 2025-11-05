@@ -1,0 +1,43 @@
+<div class="h-screen w-screen grid grid-cols-1">
+  <div class="card col-span-1 pl-3 pr-3 pt-3">
+    <p-menubar [model]="items" />
+  </div>
+
+  <div class="col-span-1 grid grid-cols-12 h-full overflow-hidden">
+    <div class="col-span-12 sm:col-span-4 md:col-span-3 lg:col-span-2 p-5 lg:pl-10 overflow-y-auto">
+      <ol>
+        <li class="sidebar-header" (click)="scrollTo('conditional-validators')">Conditional Validators</li>
+        @for (entry of [v1, v2, v3, v4, v5, v6]; track entry.fileName) {
+          <li class="sidebar-item" (click)="scrollTo(entry.fileName)">{{ entry.title }}</li>
+        }
+        <li class="sidebar-header" (click)="scrollTo('conditional-disable')">Conditional Disable</li>
+        @for (entry of [d1, d2, d3]; track entry.fileName) {
+          <li class="sidebar-item" (click)="scrollTo(entry.fileName)">{{ entry.title }}</li>
+        }
+      </ol>
+    </div>
+
+    <div
+      #scrollContainer
+      class="col-span-12 sm:col-span-8 md:col-span-9 lg:col-span-10 grid grid-cols-12 overflow-y-auto"
+    >
+      <div class="col-start-2 col-span-10 md:col-start-2 md:col-span-8 lg:col-start-2 lg:col-span-7 mt-5">
+        <section id="conditional-validators" class="pt-5">
+          <h1>Conditional Validators</h1>
+          <app-conditional-validators-basic-example #v1 />
+          <app-conditional-validators-condition-mode-example #v2 />
+          <app-conditional-validators-multiple-conditions-example #v3 />
+          <app-conditional-validators-property-path-example #v4 />
+          <app-conditional-validators-markasdirty-example #v5 />
+          <app-conditional-validators-callback-example #v6 />
+        </section>
+        <section id="conditional-disable" class="pt-5">
+          <h1>Conditional Disable</h1>
+          <app-conditional-disable-basic-example #d1 />
+          <app-conditional-disable-reset-example #d2 />
+          <app-conditional-disable-callback-example #d3 />
+        </section>
+      </div>
+    </div>
+  </div>
+</div>

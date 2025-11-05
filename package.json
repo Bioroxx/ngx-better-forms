@@ -1,0 +1,64 @@
+{
+  "name": "ngx-better-forms",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve ngx-better-forms-docs",
+    "build:lib": "ng build ngx-better-forms",
+    "build:docs": "npm run tools:extract-code-examples && ng build ngx-better-forms-docs --configuration production",
+    "test:lib": "ng test ngx-better-forms",
+    "test:ci:lib": "ng test ngx-better-forms --watch=false --browsers=ChromeHeadless --no-progress",
+    "test:docs": "ng test ngx-better-forms-docs",
+    "tools:extract-code-examples": "tsx projects/ngx-better-forms-docs/tools/extract-code-examples.ts"
+  },
+  "prettier": {
+    "printWidth": 120,
+    "singleQuote": true,
+    "overrides": [
+      {
+        "files": "*.html",
+        "options": {
+          "parser": "angular"
+        }
+      }
+    ]
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/common": "^20.3.0",
+    "@angular/compiler": "^20.3.0",
+    "@angular/core": "^20.3.0",
+    "@angular/forms": "^20.3.0",
+    "@angular/platform-browser": "^20.3.0",
+    "@angular/router": "^20.3.0",
+    "@primeuix/themes": "^1.2.5",
+    "@tailwindcss/postcss": "4.1.4",
+    "@types/prismjs": "^1.26.5",
+    "postcss": "8.5.3",
+    "primeicons": "^7.0.0",
+    "primeng": "^20.3.0",
+    "prism-material-themes": "^1.0.5",
+    "prismjs": "^1.30.0",
+    "rxjs": "~7.8.0",
+    "tailwindcss-primeui": "^0.6.1",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.15.0"
+  },
+  "devDependencies": {
+    "@angular/build": "^20.3.8",
+    "@angular/cli": "^20.3.3",
+    "@angular/compiler-cli": "^20.3.0",
+    "@types/jasmine": "~5.1.0",
+    "jasmine-core": "~5.9.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "ng-packagr": "^20.3.0",
+    "prettier": "^3.6.2",
+    "tsx": "^4.20.6",
+    "typescript": "~5.9.2"
+  }
+}
