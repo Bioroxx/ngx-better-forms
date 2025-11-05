@@ -1,0 +1,23 @@
+formGroup = this.formBuilder.group(
+  {
+    field1: new FormControl<string>(''),
+    target: new FormControl<string>(''),
+  },
+  {
+    validators: [
+      BetterDisable.conditionalDisable({
+        targetControlPath: 'target',
+        conditions: [
+          {
+            controlPath: 'field1',
+            testValues: ['a', 'b'],
+          },
+        ],
+        options: {
+          enableCallback: () => alert('Target field enabled!'),
+          disableCallback: () => alert('Target field disabled!'),
+        },
+      }),
+    ],
+  },
+);

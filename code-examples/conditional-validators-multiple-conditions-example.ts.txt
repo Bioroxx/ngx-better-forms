@@ -1,0 +1,26 @@
+formGroup = this.formBuilder.group(
+  {
+    field1: new FormControl<string>(''),
+    field2: new FormControl<number | undefined>(undefined),
+    target: new FormControl<string>(''),
+  },
+  {
+    validators: [
+      BetterValidation.conditionalValidators({
+        targetControlPath: 'target',
+        targetValidators: [Validators.required],
+        conditions: [
+          {
+            controlPath: 'field1',
+            testValues: ['a'],
+          },
+          {
+            controlPath: 'field2',
+            testRangeMinInclusive: 1,
+            testRangeMaxInclusive: 100,
+          },
+        ],
+      }),
+    ],
+  },
+);
