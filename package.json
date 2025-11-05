@@ -7,6 +7,7 @@
     "start": "ng serve ngx-better-forms-docs",
     "build:lib": "ng build ngx-better-forms",
     "build:docs": "npm run tools:extract-code-examples && ng build ngx-better-forms-docs --configuration production",
+    "build:ci:docs": "npm run tools:extract-code-examples && ng build ngx-better-forms-docs --base-href /npx-better-forms/ --configuration production",
     "test:lib": "ng test ngx-better-forms",
     "test:ci:lib": "ng test ngx-better-forms --watch=false --browsers=ChromeHeadless --no-progress",
     "test:docs": "ng test ngx-better-forms-docs",
