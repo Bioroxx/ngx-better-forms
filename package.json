@@ -8,6 +8,7 @@
     "build:lib": "ng build ngx-better-forms",
     "build:docs": "npm run tools:extract-code-examples && ng build ngx-better-forms-docs --configuration production",
     "test:lib": "ng test ngx-better-forms",
+    "test:ci:lib": "ng test ngx-better-forms --watch=false --browsers=ChromeHeadless --no-progress",
     "test:docs": "ng test ngx-better-forms-docs",
     "tools:extract-code-examples": "tsx projects/ngx-better-forms-docs/tools/extract-code-examples.ts"
   },
