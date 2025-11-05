@@ -41,3 +41,6 @@ __screenshots__/
 # System files
 .DS_Store
 Thumbs.db
+
+# Custom
+projects/ngx-better-forms-docs/public/code-examples/*.txt
