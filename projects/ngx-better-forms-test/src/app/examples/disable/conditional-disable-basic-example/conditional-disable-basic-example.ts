@@ -8,13 +8,13 @@ import { Documented } from '../../../core/interface/documented';
 import { BetterDisable } from '../../../../../../ngx-better-forms/src/lib/ngx-better-forms-disable';
 
 @Component({
-  selector: 'app-better-disable-conditional-example',
+  selector: 'app-conditional-disable-basic-example',
   imports: [ExampleCard, InputText, ReactiveFormsModule],
-  templateUrl: './better-disable-conditional-example.html',
+  templateUrl: './conditional-disable-basic-example.html',
 })
-export class BetterDisableConditionalExample implements Documented {
-  title = 'Conditional Disabling';
-  fileName = 'better-disable-conditional-example';
+export class ConditionalDisableBasicExample implements Documented {
+  title = 'Basic';
+  fileName = 'conditional-disable-basic-example';
 
   private readonly formBuilder = inject(FormBuilder);
 
@@ -22,22 +22,19 @@ export class BetterDisableConditionalExample implements Documented {
   formGroup = this.formBuilder.group(
     {
       field1: new FormControl<string>(''),
-      field2: new FormControl<string>(''),
+      target: new FormControl<string>(''),
     },
     {
       validators: [
         BetterDisable.conditionalDisable({
-          targetControlName: 'field2',
+          targetControlName: 'target',
           conditions: [
             {
               formControlName: 'field1',
-              test: ['a', 'b'],
-              mode: ConditionMode.INCLUDES,
+              testValues: ['a', 'b'],
+              mode: ConditionMode.INCLUDES, // default
             },
           ],
-          options: {
-            reset: true,
-          },
         }),
       ],
     },

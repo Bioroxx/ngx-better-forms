@@ -10,13 +10,13 @@ import { Documented } from '../../../core/interface/documented';
 import { ExampleCard } from '../../../core/component/example-card/example-card';
 
 @Component({
-  selector: 'app-better-validation-conditional-validators-example',
+  selector: 'app-conditional-validators-basic-example',
   imports: [InputText, ReactiveFormsModule, Message, FormatErrorsPipe, ExampleCard],
-  templateUrl: './better-validation-conditional-validators-example.html',
+  templateUrl: './conditional-validators-basic-example.html',
 })
-export class BetterValidationConditionalValidatorsExample implements Documented {
-  title = 'Conditional Validators';
-  fileName = 'better-validation-conditional-validators-example';
+export class ConditionalValidatorsBasicExample implements Documented {
+  title = 'Basic';
+  fileName = 'conditional-validators-basic-example';
 
   private readonly formBuilder = inject(FormBuilder);
 
@@ -24,23 +24,20 @@ export class BetterValidationConditionalValidatorsExample implements Documented 
   formGroup = this.formBuilder.group(
     {
       field1: new FormControl<string>(''),
-      field2: new FormControl<string>(''),
+      target: new FormControl<string>(''),
     },
     {
       validators: [
         BetterValidation.conditionalValidators({
-          targetControlName: 'field2',
+          targetControlName: 'target',
           targetValidators: [Validators.required],
           conditions: [
             {
               formControlName: 'field1',
-              test: ['a', 'b'],
-              mode: ConditionMode.INCLUDES,
+              testValues: ['a', 'b'],
+              mode: ConditionMode.INCLUDES, // default
             },
           ],
-          options: {
-            markAsDirty: true,
-          },
         }),
       ],
     },

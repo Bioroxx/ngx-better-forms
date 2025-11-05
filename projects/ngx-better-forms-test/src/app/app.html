@@ -1,13 +1,44 @@
-<div class="h-full w-full grid grid-cols-1 grid-rows-[auto_1fr]">
-  <div class="card col-span-1">
+<div class="h-screen w-screen grid grid-cols-1">
+  <div class="card col-span-1 p-3">
     <p-menubar [model]="items" />
   </div>
-  <div class="col-span-1 grid grid-cols-12 overflow-auto">
-    <div class="col-start-4 col-span-6 mt-5">
-      <h1>Validators</h1>
-      <app-better-validation-conditional-validators-example></app-better-validation-conditional-validators-example>
-      <h1>Disable</h1>
-      <app-better-disable-conditional-example></app-better-disable-conditional-example>
+
+  <div class="col-span-1 grid grid-cols-12 h-full overflow-hidden">
+    <div class="col-span-3 p-3 border-r border-slate-500 overflow-y-auto">
+      <ol>
+        <li class="sidebar-header" (click)="scrollTo('conditional-validators')">Conditional Validators</li>
+        <li class="sidebar-item" (click)="scrollTo('conditional-validators-basic-example')">Basic</li>
+        <li class="sidebar-item" (click)="scrollTo('conditional-validators-multiple-conditions-example')">
+          Multiple Conditions
+        </li>
+        <li class="sidebar-item" (click)="scrollTo('conditional-validators-markasdirty-example')">Mark as Dirty</li>
+        <li class="sidebar-item" (click)="scrollTo('conditional-validators-callback-example')">Callback</li>
+
+        <li class="sidebar-header" (click)="scrollTo('conditional-disable')">Conditional Disable</li>
+        <li class="sidebar-item" (click)="scrollTo('conditional-disable-basic-example')">Basic</li>
+        <li class="sidebar-item" (click)="scrollTo('conditional-disable-reset-example')">Reset</li>
+        <li class="sidebar-item" (click)="scrollTo('conditional-disable-callback-example')">Callback</li>
+      </ol>
+    </div>
+
+    <div #scrollContainer class="col-span-9 grid grid-cols-12 overflow-y-auto">
+      <div class="col-start-2 col-span-10 mt-5">
+        <section id="conditional-validators">
+          <h1>Conditional Validators</h1>
+          <app-conditional-validators-basic-example id="conditional-validators-basic-example" />
+          <app-conditional-validators-multiple-conditions-example
+            id="conditional-validators-multiple-conditions-example"
+          />
+          <app-conditional-validators-markasdirty-example id="conditional-validators-markasdirty-example" />
+          <app-conditional-validators-callback-example id="conditional-validators-callback-example" />
+        </section>
+        <section id="conditional-disable">
+          <h1>Conditional Disable</h1>
+          <app-conditional-disable-basic-example id="conditional-disable-basic-example" />
+          <app-conditional-disable-reset-example id="conditional-disable-reset-example" />
+          <app-conditional-disable-callback-example id="conditional-disable-callback-example" />
+        </section>
+      </div>
     </div>
   </div>
 </div>

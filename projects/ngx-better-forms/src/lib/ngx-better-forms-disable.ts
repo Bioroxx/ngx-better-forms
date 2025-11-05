@@ -1,12 +1,18 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { Condition, ConditionsMode, evaluateConditions } from './ngx-better-forms-core';
 
+export interface ConditionalDisableOptions {
+  mode?: ConditionsMode;
+  reset?: boolean;
+  disableCallback?: () => void;
+  enableCallback?: () => void;
+}
+
 export class BetterDisable {
   public static conditionalDisable(params: {
     targetControlName: string;
     conditions: Condition[];
-    mode?: ConditionsMode;
-    options?: { reset: boolean };
+    options?: ConditionalDisableOptions;
   }): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
       const targetControl = control.get(params.targetControlName);
@@ -15,15 +21,21 @@ export class BetterDisable {
         return control.errors;
       }
 
-      const disable = evaluateConditions(control, params.conditions, params.mode ?? ConditionsMode.ALL_TRUE);
+      const disable = evaluateConditions(control, params.conditions, params.options?.mode ?? ConditionsMode.ALL_TRUE);
 
-      if (disable) {
+      if (disable && targetControl.enabled) {
         targetControl.disable({ onlySelf: true });
         if (params.options?.reset) {
           targetControl.reset();
         }
-      } else {
+        if (params.options?.disableCallback) {
+          params.options.disableCallback();
+        }
+      } else if (!disable && targetControl.disabled) {
         targetControl.enable({ onlySelf: true });
+        if (params.options?.enableCallback) {
+          params.options.enableCallback();
+        }
       }
       return control.errors;
     };

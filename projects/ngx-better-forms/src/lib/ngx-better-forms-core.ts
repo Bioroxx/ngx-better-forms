@@ -11,23 +11,39 @@ export enum ConditionsMode {
   ALL_TRUE,
 }
 
+const DEFAULT_CONDITION_MODE = ConditionMode.INCLUDES;
+
 interface AbstractCondition {
-  test: unknown[];
-  mode: ConditionMode;
+  mode?: ConditionMode;
 }
 
-export interface FormControlCondition extends AbstractCondition {
+interface AbstractFormControlCondition extends AbstractCondition {
   formControlName: string;
 }
 
-export function isFormControlCondition(condition: AbstractCondition): condition is FormControlCondition {
-  return 'formControlName' in condition;
+export interface FormControlValuesCondition extends AbstractFormControlCondition {
+  testValues: unknown[];
 }
 
-export type Condition = FormControlCondition;
+export function isFormControlValuesCondition(condition: AbstractCondition): condition is FormControlValuesCondition {
+  return 'formControlName' in condition && 'testValues' in condition;
+}
+
+export interface FormControlRangeCondition extends AbstractFormControlCondition {
+  testRangeMinInclusive: number;
+  testRangeMaxInclusive: number;
+}
+
+export function isFormControlRangeCondition(condition: AbstractCondition): condition is FormControlRangeCondition {
+  return 'formControlName' in condition && 'testRangeMinInclusive' in condition && 'testRangeMaxInclusive' in condition;
+}
+
+export type Condition = FormControlValuesCondition | FormControlRangeCondition;
 
 function evaluateCondition(control: AbstractControl, condition: Condition): boolean {
-  if (isFormControlCondition(condition)) {
+  let isIncluded = false;
+
+  if (isFormControlValuesCondition(condition)) {
     const formControl = control.get(condition.formControlName);
 
     if (formControl === null) {
@@ -35,15 +51,27 @@ function evaluateCondition(control: AbstractControl, condition: Condition): bool
     }
 
     const value = formControl.value;
-    const testIncludesValue = condition.test.includes(value);
+    isIncluded = condition.testValues.includes(value);
+  } else if (isFormControlRangeCondition(condition)) {
+    const formControl = control.get(condition.formControlName);
 
-    if (condition.mode === ConditionMode.NOT_INCLUDES && !testIncludesValue) {
-      return true;
+    if (formControl === null) {
+      return false;
     }
 
-    if (condition.mode === ConditionMode.INCLUDES && testIncludesValue) {
-      return true;
-    }
+    const value = formControl.value;
+
+    isIncluded = condition.testRangeMinInclusive <= value && value <= condition.testRangeMaxInclusive;
+  }
+
+  condition.mode = condition.mode ?? DEFAULT_CONDITION_MODE;
+
+  if (condition.mode === ConditionMode.INCLUDES && isIncluded) {
+    return true;
+  }
+
+  if (condition.mode === ConditionMode.NOT_INCLUDES && !isIncluded) {
+    return true;
   }
 
   return false;
@@ -52,17 +80,12 @@ function evaluateCondition(control: AbstractControl, condition: Condition): bool
 export function evaluateConditions(control: AbstractControl, conditions: Condition[], mode: ConditionsMode) {
   const conditionResults = conditions.map((c) => evaluateCondition(control, c));
 
-  let evaluationResult = false;
-
   switch (mode) {
     case ConditionsMode.ALL_TRUE:
-      evaluationResult = conditionResults.every((c) => c);
-      break;
+      return conditionResults.every((c) => c);
     case ConditionsMode.SOME_TRUE:
-      evaluationResult = conditionResults.some((c) => c);
-      break;
+      return conditionResults.some((c) => c);
     case ConditionsMode.NON_TRUE:
-      evaluationResult = !conditionResults.some((c) => c);
+      return !conditionResults.some((c) => c);
   }
-  return evaluationResult;
 }

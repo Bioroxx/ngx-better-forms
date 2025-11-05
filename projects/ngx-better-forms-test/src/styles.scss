@@ -5,6 +5,12 @@
   .inline-code {
     @apply font-mono bg-gray-100 text-gray-800 px-1 rounded inline;
   }
+  .sidebar-header {
+    @apply mt-3 mb-1 text-xl text-slate-600 cursor-pointer
+  }
+  .sidebar-item {
+    @apply ml-2 text-lg text-slate-600 cursor-pointer
+  }
 }
 
 :root {

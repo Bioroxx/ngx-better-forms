@@ -10,19 +10,21 @@
         pInputText
         id="field1"
         autocomplete="off"
-        placeholder="Type 'a' or 'b' to add validator to Field 2"
+        placeholder="Type 'a' to add validators to the target field"
       />
-      @if (formGroup.controls['field1'].errors; as errors) {
-        <p-message severity="error" size="small" variant="simple">
-          {{ errors | formatErrors }}
-        </p-message>
-      }
     </div>
 
     <div class="flex flex-col">
-      <label class="font-medium" for="field2">Field 2</label>
-      <input formControlName="field2" type="text" pInputText id="field2" autocomplete="off" placeholder="" />
-      @if (formGroup.controls['field2'].errors; as errors) {
+      <label class="font-medium" for="target">Target Field</label>
+      <input
+        formControlName="target"
+        type="text"
+        pInputText
+        id="target"
+        autocomplete="off"
+        placeholder="This is the target field"
+      />
+      @if (formGroup.controls['target'].errors; as errors) {
         <p-message severity="error" size="small" variant="simple">
           {{ errors | formatErrors }}
         </p-message>
@@ -31,7 +33,6 @@
   </form>
   <!-- @doc-end -->
   <ng-template #description>
-    Add validators to a target <span class="inline-code">formControl</span> of a
-    <span class="inline-code">formGroup</span>, based on some conditions.
+    Define callback functions that should be called when the validators are added or removed from the target field.
   </ng-template>
 </app-example-card>
