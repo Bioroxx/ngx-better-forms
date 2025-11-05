@@ -34,7 +34,7 @@ function extractBetweenTSComments(content: string): string {
 }
 
 async function copy() {
-  const filePaths = getAllTsFiles('projects/ngx-better-forms-test/src/app');
+  const filePaths = getAllTsFiles('projects/ngx-better-forms-docs/src/app');
 
   for (let i = 0; i < filePaths.length; i++) {
     const filePath = filePaths[i];
@@ -51,7 +51,7 @@ async function copy() {
       const snippetFormatted = await format(snippet, { parser: 'html' });
 
       writeFileSync(
-        'projects/ngx-better-forms-test/public/code-examples/' + fileName + '.html.txt',
+        'projects/ngx-better-forms-docs/public/code-examples/' + fileName + '.html.txt',
         snippetFormatted,
         'utf8',
       );
@@ -64,7 +64,7 @@ async function copy() {
       const snippetFormatted = await format(snippet, { parser: 'typescript', singleQuote: true });
 
       writeFileSync(
-        'projects/ngx-better-forms-test/public/code-examples/' + fileName + '.ts.txt',
+        'projects/ngx-better-forms-docs/public/code-examples/' + fileName + '.ts.txt',
         snippetFormatted,
         'utf8',
       );

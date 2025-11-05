@@ -36,10 +36,10 @@
       "path": "./projects/ngx-better-forms/tsconfig.spec.json"
     },
     {
-      "path": "./projects/ngx-better-forms-test/tsconfig.app.json"
+      "path": "./projects/ngx-better-forms-docs/tsconfig.app.json"
     },
     {
-      "path": "./projects/ngx-better-forms-test/tsconfig.spec.json"
+      "path": "./projects/ngx-better-forms-docs/tsconfig.spec.json"
     }
   ]
 }
