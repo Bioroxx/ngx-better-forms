@@ -1,10 +1,10 @@
 <div class="h-screen w-screen grid grid-cols-1">
-  <div class="card col-span-1 p-3">
+  <div class="card col-span-1 pl-3 pr-3 pt-3">
     <p-menubar [model]="items" />
   </div>
 
   <div class="col-span-1 grid grid-cols-12 h-full overflow-hidden">
-    <div class="col-span-3 p-3 border-r border-slate-500 overflow-y-auto">
+    <div class="col-span-12 sm:col-span-4 md:col-span-3 lg:col-span-2 p-3 overflow-y-auto">
       <ol>
         <li class="sidebar-header" (click)="scrollTo('conditional-validators')">Conditional Validators</li>
         <li class="sidebar-item" (click)="scrollTo('conditional-validators-basic-example')">Basic</li>
@@ -21,7 +21,10 @@
       </ol>
     </div>
 
-    <div #scrollContainer class="col-span-9 grid grid-cols-12 overflow-y-auto">
+    <div
+      #scrollContainer
+      class="col-span-12 sm:col-span-8 md:col-span-9 lg:col-span-10 grid grid-cols-12 overflow-y-auto"
+    >
       <div class="col-start-2 col-span-10 mt-5">
         <section id="conditional-validators">
           <h1>Conditional Validators</h1>
