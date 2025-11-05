@@ -4,20 +4,16 @@
   </div>
 
   <div class="col-span-1 grid grid-cols-12 h-full overflow-hidden">
-    <div class="col-span-12 sm:col-span-4 md:col-span-3 lg:col-span-2 p-3 overflow-y-auto">
+    <div class="col-span-12 sm:col-span-4 md:col-span-3 lg:col-span-2 p-5 overflow-y-auto">
       <ol>
         <li class="sidebar-header" (click)="scrollTo('conditional-validators')">Conditional Validators</li>
-        <li class="sidebar-item" (click)="scrollTo('conditional-validators-basic-example')">Basic</li>
-        <li class="sidebar-item" (click)="scrollTo('conditional-validators-multiple-conditions-example')">
-          Multiple Conditions
-        </li>
-        <li class="sidebar-item" (click)="scrollTo('conditional-validators-markasdirty-example')">Mark as Dirty</li>
-        <li class="sidebar-item" (click)="scrollTo('conditional-validators-callback-example')">Callback</li>
-
+        @for (entry of [v1, v2, v3, v4, v5, v6]; track entry.fileName) {
+          <li class="sidebar-item" (click)="scrollTo(entry.fileName)">{{ entry.title }}</li>
+        }
         <li class="sidebar-header" (click)="scrollTo('conditional-disable')">Conditional Disable</li>
-        <li class="sidebar-item" (click)="scrollTo('conditional-disable-basic-example')">Basic</li>
-        <li class="sidebar-item" (click)="scrollTo('conditional-disable-reset-example')">Reset</li>
-        <li class="sidebar-item" (click)="scrollTo('conditional-disable-callback-example')">Callback</li>
+        @for (entry of [d1, d2, d3]; track entry.fileName) {
+          <li class="sidebar-item" (click)="scrollTo(entry.fileName)">{{ entry.title }}</li>
+        }
       </ol>
     </div>
 
@@ -26,20 +22,20 @@
       class="col-span-12 sm:col-span-8 md:col-span-9 lg:col-span-10 grid grid-cols-12 overflow-y-auto"
     >
       <div class="col-start-2 col-span-10 mt-5">
-        <section id="conditional-validators">
+        <section id="conditional-validators" class="pt-5">
           <h1>Conditional Validators</h1>
-          <app-conditional-validators-basic-example id="conditional-validators-basic-example" />
-          <app-conditional-validators-multiple-conditions-example
-            id="conditional-validators-multiple-conditions-example"
-          />
-          <app-conditional-validators-markasdirty-example id="conditional-validators-markasdirty-example" />
-          <app-conditional-validators-callback-example id="conditional-validators-callback-example" />
+          <app-conditional-validators-basic-example #v1 />
+          <app-conditional-validators-condition-mode-example #v2 />
+          <app-conditional-validators-multiple-conditions-example #v3 />
+          <app-conditional-validators-property-path-example #v4 />
+          <app-conditional-validators-markasdirty-example #v5 />
+          <app-conditional-validators-callback-example #v6 />
         </section>
-        <section id="conditional-disable">
+        <section id="conditional-disable" class="pt-5">
           <h1>Conditional Disable</h1>
-          <app-conditional-disable-basic-example id="conditional-disable-basic-example" />
-          <app-conditional-disable-reset-example id="conditional-disable-reset-example" />
-          <app-conditional-disable-callback-example id="conditional-disable-callback-example" />
+          <app-conditional-disable-basic-example #d1 />
+          <app-conditional-disable-reset-example #d2 />
+          <app-conditional-disable-callback-example #d3 />
         </section>
       </div>
     </div>

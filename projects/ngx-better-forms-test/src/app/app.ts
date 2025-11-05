@@ -8,6 +8,8 @@ import { ConditionalDisableResetExample } from './examples/disable/conditional-d
 import { ConditionalValidatorsMultipleConditionsExample } from './examples/validation/conditional-validators-multiple-conditions-example/conditional-validators-multiple-conditions-example';
 import { ConditionalDisableCallbackExample } from './examples/disable/conditional-disable-callback-example/conditional-disable-callback-example';
 import { ConditionalValidatorsCallbackExample } from './examples/validation/conditional-validators-callback-example/conditional-validators-callback-example';
+import { ConditionalValidatorsConditionModeExample } from './examples/validation/conditional-validators-condition-mode-example/conditional-validators-condition-mode-example';
+import { ConditionalValidatorsPropertyPathExample } from './examples/validation/conditional-validators-property-path-example/conditional-validators-property-path-example';
 
 @Component({
   selector: 'app-root',
@@ -21,6 +23,8 @@ import { ConditionalValidatorsCallbackExample } from './examples/validation/cond
     ConditionalValidatorsMultipleConditionsExample,
     ConditionalDisableCallbackExample,
     ConditionalValidatorsCallbackExample,
+    ConditionalValidatorsConditionModeExample,
+    ConditionalValidatorsPropertyPathExample,
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss',

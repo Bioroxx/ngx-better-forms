@@ -10,18 +10,18 @@ export interface ConditionalDisableOptions {
 
 export class BetterDisable {
   public static conditionalDisable(params: {
-    targetControlName: string;
+    targetControlPath: string;
     conditions: Condition[];
     options?: ConditionalDisableOptions;
   }): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
-      const targetControl = control.get(params.targetControlName);
+      const targetControl = control.get(params.targetControlPath);
 
       if (!targetControl) {
         return control.errors;
       }
 
-      const disable = evaluateConditions(control, params.conditions, params.options?.mode ?? ConditionsMode.ALL_TRUE);
+      const disable = evaluateConditions(control, params.conditions, params.options?.mode ?? ConditionsMode.ALL_MATCH);
 
       if (disable && targetControl.enabled) {
         targetControl.disable({ onlySelf: true });

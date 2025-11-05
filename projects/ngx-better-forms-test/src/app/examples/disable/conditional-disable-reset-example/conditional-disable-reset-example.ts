@@ -3,7 +3,6 @@ import { Component, inject } from '@angular/core';
 import { Documented } from '../../../core/interface/documented';
 import { FormBuilder, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { BetterDisable } from '../../../../../../ngx-better-forms/src/lib/ngx-better-forms-disable';
-import { ConditionMode } from '../../../../../../ngx-better-forms/src/lib/ngx-better-forms-core';
 import { ExampleCard } from '../../../core/component/example-card/example-card';
 import { InputText } from 'primeng/inputtext';
 
@@ -27,12 +26,11 @@ export class ConditionalDisableResetExample implements Documented {
     {
       validators: [
         BetterDisable.conditionalDisable({
-          targetControlName: 'target',
+          targetControlPath: 'target',
           conditions: [
             {
-              formControlName: 'field1',
+              controlPath: 'field1',
               testValues: ['a', 'b'],
-              mode: ConditionMode.INCLUDES,
             },
           ],
           options: {

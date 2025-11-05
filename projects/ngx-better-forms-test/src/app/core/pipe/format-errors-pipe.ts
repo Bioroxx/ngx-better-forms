@@ -6,10 +6,6 @@ import { ValidationErrors } from '@angular/forms';
 })
 export class FormatErrorsPipe implements PipeTransform {
   transform(errors: ValidationErrors): string {
-    if (errors) {
-      const keys = Object.keys(errors);
-      return 'errors: {' + keys.map((k) => `${k}: ${errors[k]}`).join(', ') + '}';
-    }
-    return 'none';
+    return 'errors: ' + JSON.stringify(errors);
   }
 }

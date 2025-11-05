@@ -24,7 +24,8 @@
         "test": {
           "builder": "@angular/build:karma",
           "options": {
-            "tsConfig": "projects/ngx-better-forms/tsconfig.spec.json"
+            "tsConfig": "projects/ngx-better-forms/tsconfig.spec.json",
+            "codeCoverage": true
           }
         }
       }

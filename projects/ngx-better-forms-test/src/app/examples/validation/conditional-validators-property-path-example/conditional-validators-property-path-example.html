@@ -4,14 +4,7 @@
   <form [formGroup]="formGroup" class="flex flex-col gap-3 p-3">
     <div class="flex flex-col">
       <label class="font-medium" for="field1">Field 1</label>
-      <input
-        formControlName="field1"
-        type="text"
-        pInputText
-        id="field1"
-        autocomplete="off"
-        placeholder="Type 'a' or 'b' to add a validator to the target field"
-      />
+      <p-select [options]="options" formControlName="field1" optionLabel="label" placeholder="Select an option" />
     </div>
 
     <div class="flex flex-col">
@@ -33,8 +26,8 @@
   </form>
   <!-- @doc-end -->
   <ng-template #description>
-    Add validators to a target <span class="inline-code">FormControl</span> of a
-    <span class="inline-code">FormGroup</span>, based on the current value of another
-    <span class="inline-code">FormControl</span>.
+    If the value of the condition form is an object, but the condition should check against a property of that object,
+    the <span class="inline-code">propertyPath</span> to that property can be defined.
+    <br />
   </ng-template>
 </app-example-card>

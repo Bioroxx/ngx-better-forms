@@ -10,7 +10,7 @@ export interface ConditionalValidatorOptions {
 
 export class BetterValidation {
   public static conditionalValidators(params: {
-    targetControlName: string;
+    targetControlPath: string;
     targetValidators: ValidatorFn[];
     conditions: Condition[];
     options?: ConditionalValidatorOptions;
@@ -18,7 +18,7 @@ export class BetterValidation {
     let validatorAdded = false;
 
     return (control: AbstractControl): ValidationErrors | null => {
-      const targetControl = control.get(params.targetControlName);
+      const targetControl = control.get(params.targetControlPath);
 
       if (!targetControl) {
         return control.errors;
@@ -27,7 +27,7 @@ export class BetterValidation {
       const addValidators = evaluateConditions(
         control,
         params.conditions,
-        params.options?.mode ?? ConditionsMode.ALL_TRUE,
+        params.options?.mode ?? ConditionsMode.ALL_MATCH,
       );
 
       if (addValidators && !validatorAdded) {

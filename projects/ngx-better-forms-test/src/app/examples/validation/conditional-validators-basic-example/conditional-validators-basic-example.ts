@@ -2,7 +2,7 @@
 import { Component, inject } from '@angular/core';
 import { InputText } from 'primeng/inputtext';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
-import { BetterValidation, ConditionMode } from '../../../../../../ngx-better-forms/src/public-api';
+import { BetterValidation } from '../../../../../../ngx-better-forms/src/public-api';
 import { Message } from 'primeng/message';
 
 import { FormatErrorsPipe } from '../../../core/pipe/format-errors-pipe';
@@ -29,13 +29,12 @@ export class ConditionalValidatorsBasicExample implements Documented {
     {
       validators: [
         BetterValidation.conditionalValidators({
-          targetControlName: 'target',
+          targetControlPath: 'target',
           targetValidators: [Validators.required],
           conditions: [
             {
-              formControlName: 'field1',
+              controlPath: 'field1',
               testValues: ['a', 'b'],
-              mode: ConditionMode.INCLUDES, // default
             },
           ],
         }),

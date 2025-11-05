@@ -30,15 +30,15 @@ export class ConditionalValidatorsMultipleConditionsExample implements Documente
     {
       validators: [
         BetterValidation.conditionalValidators({
-          targetControlName: 'target',
+          targetControlPath: 'target',
           targetValidators: [Validators.required],
           conditions: [
             {
-              formControlName: 'field1',
+              controlPath: 'field1',
               testValues: ['a'],
             },
             {
-              formControlName: 'field2',
+              controlPath: 'field2',
               testRangeMinInclusive: 1,
               testRangeMaxInclusive: 100,
             },

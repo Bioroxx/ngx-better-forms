@@ -14,7 +14,7 @@ import { Documented } from '../../../core/interface/documented';
   templateUrl: './conditional-validators-callback-example.html',
 })
 export class ConditionalValidatorsCallbackExample implements Documented {
-  title = 'Callback';
+  title = 'Callbacks';
   fileName = 'conditional-validators-callback-example';
 
   private readonly formBuilder = inject(FormBuilder);
@@ -28,11 +28,11 @@ export class ConditionalValidatorsCallbackExample implements Documented {
     {
       validators: [
         BetterValidation.conditionalValidators({
-          targetControlName: 'target',
+          targetControlPath: 'target',
           targetValidators: [Validators.required],
           conditions: [
             {
-              formControlName: 'field1',
+              controlPath: 'field1',
               testValues: ['a'],
             },
           ],

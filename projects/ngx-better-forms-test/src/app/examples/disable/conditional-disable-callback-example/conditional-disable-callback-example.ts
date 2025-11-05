@@ -26,10 +26,10 @@ export class ConditionalDisableCallbackExample implements Documented {
     {
       validators: [
         BetterDisable.conditionalDisable({
-          targetControlName: 'target',
+          targetControlPath: 'target',
           conditions: [
             {
-              formControlName: 'field1',
+              controlPath: 'field1',
               testValues: ['a', 'b'],
             },
           ],
