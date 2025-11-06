@@ -15,13 +15,11 @@ Better, cleaner, and more maintainable reactive form utilities for Angular.
 - ⚡ Utility methods to simplify control management
 - 🧪 100% unit tested
 
----
 
 ## 📘 Documentation
 
 [https://bioroxx.github.io/ngx-better-forms](https://bioroxx.github.io/ngx-better-forms)
 
----
 
 ## 📦 Installation
 
@@ -29,7 +27,6 @@ Better, cleaner, and more maintainable reactive form utilities for Angular.
 npm install ngx-better-forms
 ```
 
----
 
 ## 💡 Example Usage
 
