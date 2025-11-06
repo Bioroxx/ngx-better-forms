@@ -8,7 +8,7 @@
     "build:lib:ci": "npm run script:copy-readme && ng build ngx-better-forms --configuration production",
     "test:docs:dev": "ng test ngx-better-forms-docs",
     "test:docs:ci": "ng test ngx-better-forms-docs --watch=false --browsers=ChromeHeadless --no-progress",
-    "build:docs:ci": "npm run tools:extract-code-examples && ng build ngx-better-forms-docs --base-href /ngx-better-forms/ --configuration production",
+    "build:docs:ci": "npm run script:extract-code-examples && ng build ngx-better-forms-docs --base-href /ngx-better-forms/ --configuration production",
     "script:extract-code-examples": "tsx projects/ngx-better-forms-docs/scripts/extract-code-examples.ts",
     "script:copy-readme": "tsx scripts/copy.ts README.md projects/ngx-better-forms/README.md"
   },
