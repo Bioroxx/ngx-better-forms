@@ -1,17 +1,16 @@
 {
-  "name": "ngx-better-forms",
-  "version": "0.0.0",
+  "name": "ngx-better-forms-workspace",
   "type": "module",
   "scripts": {
-    "ng": "ng",
     "start": "ng serve ngx-better-forms-docs",
-    "build:lib": "ng build ngx-better-forms",
-    "build:docs": "npm run tools:extract-code-examples && ng build ngx-better-forms-docs --configuration production",
-    "build:ci:docs": "npm run tools:extract-code-examples && ng build ngx-better-forms-docs --base-href /ngx-better-forms/ --configuration production",
-    "test:lib": "ng test ngx-better-forms",
-    "test:ci:lib": "ng test ngx-better-forms --watch=false --browsers=ChromeHeadless --no-progress",
-    "test:docs": "ng test ngx-better-forms-docs",
-    "tools:extract-code-examples": "tsx projects/ngx-better-forms-docs/tools/extract-code-examples.ts"
+    "test:lib:dev": "ng test ngx-better-forms",
+    "test:lib:ci": "ng test ngx-better-forms --watch=false --browsers=ChromeHeadless --no-progress",
+    "build:lib:ci": "npm run script:copy-readme && ng build ngx-better-forms --configuration production",
+    "test:docs:dev": "ng test ngx-better-forms-docs",
+    "test:docs:ci": "ng test ngx-better-forms-docs --watch=false --browsers=ChromeHeadless --no-progress",
+    "build:docs:ci": "npm run tools:extract-code-examples && ng build ngx-better-forms-docs --base-href /ngx-better-forms/ --configuration production",
+    "script:extract-code-examples": "tsx projects/ngx-better-forms-docs/scripts/extract-code-examples.ts",
+    "script:copy-readme": "tsx scripts/copy.ts README.md projects/ngx-better-forms/README.md"
   },
   "prettier": {
     "printWidth": 120,
