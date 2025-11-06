@@ -33,9 +33,6 @@ jobs:
       - name: Test
         run: npm run test:lib:ci
 
-      - name: Cd into dist
-        run: cd dist/ngx-better-forms
-
       - name: Publish to npm
         run: npm publish
-
+        working-directory: dist/ngx-better-forms
