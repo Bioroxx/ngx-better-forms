@@ -1,6 +1,5 @@
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
-import { BetterValidation } from '../lib/ngx-better-forms-validation';
-import { ConditionMode, ConditionsMode } from '../lib/ngx-better-forms-core';
+import { BetterValidation, ConditionMode, ConditionsMode } from '../public-api';
 
 describe('BetterValidation.conditionalValidators', () => {
   let formBuilder: FormBuilder;

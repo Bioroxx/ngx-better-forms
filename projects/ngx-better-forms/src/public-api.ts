@@ -2,8 +2,12 @@
  * Public API Surface of ngx-better-forms
  */
 
-export type { Condition } from './lib/ngx-better-forms-core';
-export { ConditionMode, ConditionsMode } from './lib/ngx-better-forms-core';
+// Core
+export * from './lib/core';
 
-export * from './lib/ngx-better-forms-validation';
-export * from './lib/ngx-better-forms-disable';
+// Reactive Forms
+export * from './lib/reactive-forms/validation';
+export * from './lib/reactive-forms/disable';
+
+// Signal Forms
+export * from './lib/signal-forms/core';

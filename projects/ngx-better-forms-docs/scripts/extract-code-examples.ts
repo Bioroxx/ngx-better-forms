@@ -1,6 +1,7 @@
 import { readdirSync, readFileSync, statSync, writeFileSync } from 'fs';
 import { basename, extname, join, relative } from 'path';
-import { format } from 'prettier';
+// @ts-ignore
+import beautify from 'js-beautify';
 
 function getAllTsFiles(dir: string, files = []): string[] {
   for (const entry of readdirSync(dir)) {
@@ -48,7 +49,7 @@ async function copy() {
         continue;
       }
       const snippet = extractBetweenHTMLComments(fileContent);
-      const snippetFormatted = await format(snippet, { parser: 'html' });
+      const snippetFormatted = beautify.html(snippet);
 
       writeFileSync(
         'projects/ngx-better-forms-docs/public/code-examples/' + fileName + '.html.txt',
@@ -61,7 +62,11 @@ async function copy() {
       }
 
       const snippet = extractBetweenTSComments(fileContent);
-      const snippetFormatted = await format(snippet, { parser: 'typescript', singleQuote: true });
+      const snippetFormatted = beautify.js(snippet, {
+        indent_size: 2,
+        space_in_empty_paren: true,
+        end_with_newline: true,
+      });
 
       writeFileSync(
         'projects/ngx-better-forms-docs/public/code-examples/' + fileName + '.ts.txt',

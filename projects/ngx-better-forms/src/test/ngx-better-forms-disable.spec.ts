@@ -1,5 +1,5 @@
 import { AbstractControl, FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { BetterDisable } from '../lib/ngx-better-forms-disable';
+import { BetterDisable } from '../lib/reactive-forms/ngx-better-forms-disable';
 
 describe('BetterDisable.conditionalDisable', () => {
   let formBuilder: FormBuilder;
