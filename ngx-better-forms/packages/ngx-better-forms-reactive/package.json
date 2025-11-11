@@ -1,0 +1,14 @@
+{
+  "name": "@ngx-better-forms/ngx-better-forms-reactive",
+  "version": "0.0.1",
+  "private": true,
+  "type": "commonjs",
+  "main": "./index.cjs",
+  "types": "./index.d.ts",
+  "peerDependencies": {
+    "@angular/forms": "^20.0.0 || ^21.0.0"
+  },
+  "devDependencies": {
+    "@angular/forms": "^20.0.0 || ^21.0.0"
+  }
+}

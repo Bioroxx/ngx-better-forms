@@ -1,0 +1,28 @@
+{
+  "name": "ngx-better-forms-reactive",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/ngx-better-forms-reactive/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/ngx-better-forms-reactive",
+        "main": "packages/ngx-better-forms-reactive/src/index.ts",
+        "tsConfig": "packages/ngx-better-forms-reactive/tsconfig.lib.json",
+        "assets": ["packages/ngx-better-forms-reactive/*.md"],
+        "format": ["esm"],
+        "generatePackageJson": true
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/ngx-better-forms-reactive/jest.config.ts"
+      }
+    }
+  }
+}

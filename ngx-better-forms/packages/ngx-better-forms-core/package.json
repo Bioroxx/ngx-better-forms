@@ -1,0 +1,9 @@
+{
+  "name": "@ngx-better-forms/ngx-better-forms-core",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "main": "./index.js",
+  "types": "./src/index.d.ts",
+  "dependencies": {}
+}

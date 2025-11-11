@@ -1,0 +1,28 @@
+{
+  "name": "ngx-better-forms-core",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/ngx-better-forms-core/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/ngx-better-forms-core",
+        "main": "packages/ngx-better-forms-core/src/index.ts",
+        "tsConfig": "packages/ngx-better-forms-core/tsconfig.lib.json",
+        "assets": ["packages/ngx-better-forms-core/*.md"],
+        "format": ["esm"],
+        "generatePackageJson": true
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/ngx-better-forms-core/jest.config.ts"
+      }
+    }
+  }
+}

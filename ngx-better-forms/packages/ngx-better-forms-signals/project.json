@@ -1,0 +1,29 @@
+{
+  "name": "ngx-better-forms-signals",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "root": "packages/ngx-better-forms-core",
+  "sourceRoot": "packages/ngx-better-forms-signals/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/ngx-better-forms-signals",
+        "main": "packages/ngx-better-forms-signals/src/index.ts",
+        "tsConfig": "packages/ngx-better-forms-signals/tsconfig.lib.json",
+        "assets": ["packages/ngx-better-forms-signals/*.md"],
+        "format": ["esm"],
+        "generatePackageJson": true
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/ngx-better-forms-signals/jest.config.ts"
+      }
+    }
+  }
+}
