@@ -1,6 +1,7 @@
 {
   "name": "ngx-better-forms-reactive",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "root": "packages/ngx-better-forms-reactive",
   "sourceRoot": "packages/ngx-better-forms-reactive/src",
   "projectType": "library",
   "tags": [],

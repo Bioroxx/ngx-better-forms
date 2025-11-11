@@ -2,8 +2,15 @@
   "name": "@ngx-better-forms/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "setup": "npm install",
+    "build:all": "npx nx run-many --target=build --all",
+    "build:lib:core": "npx nx build ngx-better-forms-core --skip-nx-cache",
+    "build:lib:reactive": "npx nx build ngx-better-forms-reactive --skip-nx-cache",
+    "build:lib:signals": "npx nx build ngx-better-forms-signals --skip-nx-cache"
+  },
   "private": true,
+  "packageManager": "npm@11.6.1",
   "devDependencies": {
     "@eslint/js": "^9.8.0",
     "@nx/angular": "22.0.2",

@@ -1,6 +1,7 @@
 {
   "name": "ngx-better-forms-core",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "root": "packages/ngx-better-forms-core",
   "sourceRoot": "packages/ngx-better-forms-core/src",
   "projectType": "library",
   "tags": [],
