@@ -1,13 +1,8 @@
-/*
- * Public API Surface of ngx-better-forms
- */
-
 // Core
-export * from './lib/core';
+export * from '@ngx-better-forms/core';
 
 // Reactive Forms
-export * from './lib/reactive-forms/validation';
-export * from './lib/reactive-forms/disable';
+export * from '@ngx-better-forms/reactive';
 
 // Signal Forms
-export * from './lib/signal-forms/core';
+export * from '@ngx-better-forms/signals';

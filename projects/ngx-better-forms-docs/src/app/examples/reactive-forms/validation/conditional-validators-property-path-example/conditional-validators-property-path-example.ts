@@ -4,7 +4,7 @@ import { Documented } from '../../../../core/interface/documented';
 import { ExampleCard } from '../../../../core/component/example-card/example-card';
 import { FormatErrorsPipe } from '../../../../core/pipe/format-errors-pipe';
 import { FormBuilder, FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { BetterValidation } from '../../../../../../../ngx-better-forms/src/public-api';
+import { BetterValidation } from '@ngx-better-forms/reactive';
 
 interface Option {
   value: string;

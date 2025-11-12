@@ -4,7 +4,8 @@ import { ExampleCard } from '../../../../core/component/example-card/example-car
 import { FormatErrorsPipe } from '../../../../core/pipe/format-errors-pipe';
 import { FormBuilder, FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Documented } from '../../../../core/interface/documented';
-import { BetterValidation, ConditionMode } from '../../../../../../../ngx-better-forms/src/public-api';
+import { ConditionMode } from '@ngx-better-forms/core';
+import { BetterValidation } from '@ngx-better-forms/reactive';
 
 @Component({
   selector: 'app-conditional-validators-condition-mode-example',

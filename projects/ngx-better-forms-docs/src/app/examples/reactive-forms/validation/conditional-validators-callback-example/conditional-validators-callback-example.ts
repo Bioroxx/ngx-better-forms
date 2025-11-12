@@ -3,7 +3,7 @@ import { Component, inject } from '@angular/core';
 import { ExampleCard } from '../../../../core/component/example-card/example-card';
 import { FormatErrorsPipe } from '../../../../core/pipe/format-errors-pipe';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
-import { BetterValidation } from '../../../../../../../ngx-better-forms/src/public-api';
+import { BetterValidation } from '@ngx-better-forms/reactive';
 import { Documented } from '../../../../core/interface/documented';
 
 @Component({

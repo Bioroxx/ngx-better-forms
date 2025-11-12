@@ -2,7 +2,7 @@
 import { Component, inject } from '@angular/core';
 import { Documented } from '../../../../core/interface/documented';
 import { FormBuilder, FormControl, ReactiveFormsModule } from '@angular/forms';
-import { BetterDisable } from '../../../../../../../ngx-better-forms/src/public-api';
+import { BetterDisable } from '@ngx-better-forms/reactive';
 import { ExampleCard } from '../../../../core/component/example-card/example-card';
 
 @Component({

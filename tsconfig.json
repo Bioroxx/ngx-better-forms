@@ -3,13 +3,23 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": ".",
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "paths": {
-      "ngx-better-forms": [
-        "./dist/ngx-better-forms"
+      "@ngx-better-forms/better-forms": [
+        "./dist/@ngx-better-forms/better-forms"
+      ],
+      "@ngx-better-forms/core": [
+        "./dist/@ngx-better-forms/core"
+      ],
+      "@ngx-better-forms/reactive": [
+        "./dist/@ngx-better-forms/reactive"
+      ],
+      "@ngx-better-forms/signals": [
+        "./dist/@ngx-better-forms/signals"
       ]
     },
     "noFallthroughCasesInSwitch": true,
@@ -25,8 +35,11 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "typeCheckHostBindings": true,
-    "strictTemplates": true,
+    "strictTemplates": true
   },
+  "include": [
+    "./dist/**/*"
+  ],
   "files": [],
   "references": [
     {
@@ -40,6 +53,24 @@
     },
     {
       "path": "./projects/ngx-better-forms-docs/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/ngx-better-forms-reactive/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/ngx-better-forms-reactive/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/ngx-better-forms-signals/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/ngx-better-forms-signals/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/ngx-better-forms-core/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/ngx-better-forms-core/tsconfig.spec.json"
     }
   ]
 }

@@ -120,6 +120,102 @@
           }
         }
       }
+    },
+    "ngx-better-forms-reactive": {
+      "projectType": "library",
+      "root": "projects/ngx-better-forms-reactive",
+      "sourceRoot": "projects/ngx-better-forms-reactive/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-better-forms-reactive/tsconfig.lib.prod.json",
+              "project": "projects/ngx-better-forms-reactive/ng-package.json"
+            },
+            "development": {
+              "tsConfig": "projects/ngx-better-forms-reactive/tsconfig.lib.json",
+              "project": "projects/ngx-better-forms-reactive/ng-package.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:karma",
+          "options": {
+            "tsConfig": "projects/ngx-better-forms-reactive/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    },
+    "ngx-better-forms-signals": {
+      "projectType": "library",
+      "root": "projects/ngx-better-forms-signals",
+      "sourceRoot": "projects/ngx-better-forms-signals/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-better-forms-signals/tsconfig.lib.prod.json",
+              "project": "projects/ngx-better-forms-signals/ng-package.json"
+            },
+            "development": {
+              "tsConfig": "projects/ngx-better-forms-signals/tsconfig.lib.json",
+              "project": "projects/ngx-better-forms-signals/ng-package.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:karma",
+          "options": {
+            "tsConfig": "projects/ngx-better-forms-signals/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    },
+    "ngx-better-forms-core": {
+      "projectType": "library",
+      "root": "projects/ngx-better-forms-core",
+      "sourceRoot": "projects/ngx-better-forms-core/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-better-forms-core/tsconfig.lib.prod.json",
+              "project": "projects/ngx-better-forms-core/ng-package.json"
+            },
+            "development": {
+              "tsConfig": "projects/ngx-better-forms-core/tsconfig.lib.json",
+              "project": "projects/ngx-better-forms-core/ng-package.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:karma",
+          "options": {
+            "tsConfig": "projects/ngx-better-forms-core/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {

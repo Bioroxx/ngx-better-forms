@@ -3,12 +3,26 @@
   "type": "module",
   "scripts": {
     "start": "ng serve ngx-better-forms-docs",
-    "test:lib:dev": "ng test ngx-better-forms",
-    "test:lib:ci": "ng test ngx-better-forms --watch=false --browsers=ChromeHeadless --no-progress",
-    "build:lib:ci": "npm run script:copy-readme && ng build ngx-better-forms --configuration production",
-    "test:docs:dev": "ng test ngx-better-forms-docs",
-    "test:docs:ci": "ng test ngx-better-forms-docs --watch=false --browsers=ChromeHeadless --no-progress",
-    "build:docs:ci": "npm run script:extract-code-examples && ng build ngx-better-forms-docs --base-href /ngx-better-forms/ --configuration production",
+
+    "build:lib": "ng build ngx-better-forms-core && ng build ngx-better-forms-reactive && ng build ngx-better-forms-signals && ng build ngx-better-forms",
+    "build:docs": "npm run script:extract-code-examples && ng build ngx-better-forms-docs --base-href /ngx-better-forms/ --configuration production",
+
+    "build:core:watch": "ng build ngx-better-forms-core --watch --configuration development",
+    "build:reactive:watch": "ng build ngx-better-forms-reactive --watch --configuration development",
+    "build:signals:watch": "ng build ngx-better-forms-signals --watch --configuration development",
+    "build:all:watch": "ng build ngx-better-forms --watch --configuration development",
+
+    "build:core": "ng build ngx-better-forms-core --configuration production",
+    "build:reactive": "ng build ngx-better-forms-reactive --configuration production",
+    "build:signals": "ng build ngx-better-forms-signals --configuration production",
+    "build:all": "npm run build:core && npm run build:reactive && npm run build:signals && ng build ngx-better-forms --configuration production",
+
+    "test:reactive": "ng test ngx-better-forms-reactive",
+    "test:signals": "ng test ngx-better-forms-signals",
+
+    "test:reactive:ci": "ng test ngx-better-forms-reactive --watch=false --browsers=ChromeHeadless --no-progress",
+    "test:signals:ci": "ng test ngx-better-forms-signals --watch=false --browsers=ChromeHeadless --no-progress",
+
     "script:extract-code-examples": "tsx projects/ngx-better-forms-docs/scripts/extract-code-examples.ts",
     "script:copy-readme": "tsx scripts/copy.ts README.md projects/ngx-better-forms/README.md"
   },

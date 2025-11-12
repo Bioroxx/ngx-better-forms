@@ -4,7 +4,7 @@ import { ExampleCard } from '../../../../core/component/example-card/example-car
 import { Field, form, minLength, required, schema } from '@angular/forms/signals';
 import { Documented } from '../../../../core/interface/documented';
 import { FormatErrorsPipe } from '../../../../core/pipe/format-errors-pipe';
-import { conditional } from '../../../../../../../ngx-better-forms/src/public-api';
+import { conditional } from '@ngx-better-forms/signals';
 
 export interface FormFields {
   field1: string;
