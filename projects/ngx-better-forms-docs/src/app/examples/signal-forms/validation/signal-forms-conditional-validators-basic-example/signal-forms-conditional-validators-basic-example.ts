@@ -17,7 +17,7 @@ export interface FormFields {
   templateUrl: './signal-forms-conditional-validators-basic-example.html',
 })
 export class SignalFormsConditionalValidatorsBasicExample implements Documented {
-  title = 'Conditional Validators';
+  title = 'Basic';
   fileName = 'signal-forms-conditional-validators-basic-example';
 
   // @doc-start
