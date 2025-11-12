@@ -1,0 +1,13 @@
+{
+  "name": "@ngx-better-forms/core",
+  "version": "0.0.1",
+  "type": "module",
+  "peerDependencies": {
+    "@angular/common": "^21.0.0-next.0",
+    "@angular/core": "^21.0.0-next.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}

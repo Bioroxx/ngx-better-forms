@@ -4,7 +4,7 @@ import { ExampleCard } from '../../../../core/component/example-card/example-car
 import { Field, form, minLength, required, schema } from '@angular/forms/signals';
 import { Documented } from '../../../../core/interface/documented';
 import { FormatErrorsPipe } from '../../../../core/pipe/format-errors-pipe';
-import { conditional } from '@ngx-better-forms/signals';
+import { conditionalSchema } from '@ngx-better-forms/signals';
 
 export interface FormFields {
   field1: string;
@@ -27,7 +27,7 @@ export class SignalFormsConditionalValidatorsBasicExample implements Documented 
   });
 
   signalForm = form(this.formFields, (path) => {
-    conditional({
+    conditionalSchema({
       root: path,
       schema: schema<FormFields>((ctx) => {
         required(ctx.target);

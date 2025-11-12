@@ -1,0 +1,12 @@
+{
+  "name": "@ngx-better-forms/reactive",
+  "version": "0.0.1",
+  "type": "module",
+  "peerDependencies": {
+    "@angular/forms": "20.3.0 || ^21.0.0-next.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}
