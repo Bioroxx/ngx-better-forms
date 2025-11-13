@@ -7,26 +7,22 @@
   small {
     @apply mt-1 text-sm text-red-600
   }
-  input {
-    width: 100% !important;
-    @apply flex
+  .inline-code {
+    @apply font-mono bg-gray-100 text-gray-800 px-1 rounded inline;
+  }
+}
+
+@layer utilities {
+  .input {
+    @apply w-full transition-all duration-100 ease-in-out
   }
   .panel {
     @apply p-3 border-1 rounded-sm border-slate-300
   }
-  .inline-code {
-    @apply font-mono bg-gray-100 text-gray-800 px-1 rounded inline;
-  }
-  .sidebar-header {
-    @apply mt-3 mb-1 text-xl text-slate-600 cursor-pointer
-  }
-  .sidebar-item {
-    @apply ml-2 text-lg text-slate-600 cursor-pointer
-  }
 }
 
 :root {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 body {
@@ -38,12 +34,12 @@ body {
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: bold;
 }
 
 h2 {
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   font-weight: bold;
 }
 
