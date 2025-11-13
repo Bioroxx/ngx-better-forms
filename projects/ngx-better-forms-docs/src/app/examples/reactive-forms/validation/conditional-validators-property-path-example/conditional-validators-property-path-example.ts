@@ -16,10 +16,7 @@ interface Option {
   imports: [ExampleCard, FormatErrorsPipe, FormsModule, ReactiveFormsModule],
   templateUrl: './conditional-validators-property-path-example.html',
 })
-export class ConditionalValidatorsPropertyPathExample implements Documented {
-  title = 'Property Path';
-  fileName = 'conditional-validators-property-path-example';
-
+export class ConditionalValidatorsPropertyPathExample extends Documented {
   private readonly formBuilder = inject(FormBuilder);
 
   // @doc-start
@@ -71,8 +68,4 @@ export class ConditionalValidatorsPropertyPathExample implements Documented {
     },
   );
   // @doc-end
-
-  constructor() {
-    this.formGroup.valueChanges.subscribe((v) => console.log('V change', v));
-  }
 }

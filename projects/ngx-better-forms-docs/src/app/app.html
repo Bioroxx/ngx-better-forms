@@ -2,12 +2,7 @@
   <div class="navbar bg-base-100 shadow-sm z-50 flex-none">
     <div class="flex-none">
       <label for="drawer-toggle-input" class="btn drawer-button lg:hidden">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          class="inline-block h-5 w-5 stroke-current"
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="inline-block h-5 w-5 stroke-current">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
       </label>
@@ -17,59 +12,33 @@
 
   <div class="drawer lg:drawer-open flex-1 overflow-hidden">
     <input id="drawer-toggle-input" type="checkbox" class="drawer-toggle" />
-    <div class="drawer-content overflow-y-auto">
-      <!-- Page content here -->
-      <div #scrollContainer class="grid grid-cols-12">
+    <div #scrollContainer class="drawer-content overflow-y-auto">
+      <div class="grid grid-cols-12">
         <div class="col-start-2 col-span-10 pb-24">
-          <section id="conditional-validators" class="pt-5">
-            <h1>Conditional Validators</h1>
-            <app-conditional-validators-basic-example #v1 />
-            <app-conditional-validators-condition-mode-example #v2 />
-            <app-conditional-validators-multiple-conditions-example #v3 />
-            <app-conditional-validators-property-path-example #v4 />
-            <app-conditional-validators-markasdirty-example #v5 />
-            <app-conditional-validators-callback-example #v6 />
-          </section>
-
-          <section id="conditional-disable" class="pt-5">
-            <h1>Conditional Disable</h1>
-            <app-conditional-disable-basic-example #d1 />
-            <app-conditional-disable-reset-example #d2 />
-            <app-conditional-disable-callback-example #d3 />
-          </section>
-
-          <section id="signal-forms-conditional-validators" class="pt-5">
-            <h1>Signal Conditional Validators</h1>
-            <app-signal-forms-conditional-validators-basic-example #sv1 />
-          </section>
+          @for (section of documentation; track section) {
+            <section [id]="section.sectionId" class="pt-5">
+              <h1>{{ section.sectionTitle }}</h1>
+              @for (docExample of section.docExamples; track docExample) {
+                <ng-container [documentedComponent]="docExample"></ng-container>
+              }
+            </section>
+          }
         </div>
       </div>
     </div>
 
     <div class="drawer-side mt-16 lg:mt-0 overflow-clip">
       <label for="drawer-toggle-input" aria-label="close sidebar" class="drawer-overlay"></label>
-      <ul class="menu bg-base-200 min-h-full w-80 p-4">
-        <li class="font-bold" (click)="scrollTo('conditional-validators')"><a>Conditional Validators</a></li>
-        @for (entry of [v1, v2, v3, v4, v5, v6]; track entry.fileName) {
-          <li (click)="scrollTo(entry.fileName)">
-            <a>{{ entry.title }}</a>
+      <ul class="menu bg-base-200 min-h-full w-80 p-4 text-lg">
+        @for (section of documentation; track section) {
+          <li class="font-bold" (click)="scrollTo(section.sectionId)">
+            <a>{{ section.sectionTitle }}</a>
           </li>
-        }
-
-        <li class="font-bold" (click)="scrollTo('conditional-disable')"><a>Conditional Disable</a></li>
-        @for (entry of [d1, d2, d3]; track entry.fileName) {
-          <li (click)="scrollTo(entry.fileName)">
-            <a>{{ entry.title }}</a>
-          </li>
-        }
-
-        <li class="font-bold" (click)="scrollTo('signal-forms-conditional-validators')">
-          <a>Conditional Schema</a>
-        </li>
-        @for (entry of [sv1]; track entry.fileName) {
-          <li (click)="scrollTo(entry.fileName)">
-            <a>{{ entry.title }}</a>
-          </li>
+          @for (docExample of section.docExamples; track docExample) {
+            <li (click)="scrollTo(docExample.id)">
+              <a>{{ docExample.title }}</a>
+            </li>
+          }
         }
       </ul>
     </div>

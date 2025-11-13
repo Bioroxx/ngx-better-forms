@@ -12,10 +12,7 @@ import { BetterValidation } from '@ngx-better-forms/reactive';
   imports: [ExampleCard, FormatErrorsPipe, FormsModule, ReactiveFormsModule],
   templateUrl: './conditional-validators-condition-mode-example.html',
 })
-export class ConditionalValidatorsConditionModeExample implements Documented {
-  title = 'Condition Mode';
-  fileName = 'conditional-validators-condition-mode-example';
-
+export class ConditionalValidatorsConditionModeExample extends Documented {
   private readonly formBuilder = inject(FormBuilder);
 
   // @doc-start

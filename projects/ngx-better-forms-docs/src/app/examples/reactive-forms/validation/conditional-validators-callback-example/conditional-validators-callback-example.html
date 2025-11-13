@@ -1,5 +1,5 @@
 <!-- @documented -->
-<app-example-card [title]="title" [exampleName]="fileName">
+<app-example-card [title]="title" [exampleName]="id">
   <!-- @doc-start -->
   <form [formGroup]="formGroup" class="flex flex-col gap-3 p-3">
     <div class="flex flex-col">
@@ -7,7 +7,7 @@
       <input
         formControlName="field1"
         type="text"
-        class="bulma-input"
+        class="input"
         id="field1"
         autocomplete="off"
         placeholder="Type 'a' to add validators to the target field"
@@ -19,7 +19,7 @@
       <input
         formControlName="target"
         type="text"
-        class="bulma-input"
+        class="input"
         id="target"
         autocomplete="off"
         placeholder="This is the target field"

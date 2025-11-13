@@ -10,10 +10,7 @@ import { Documented } from '../../../../core/interface/documented';
   imports: [ExampleCard, ReactiveFormsModule],
   templateUrl: './conditional-disable-callback-example.html',
 })
-export class ConditionalDisableCallbackExample implements Documented {
-  title = 'Callbacks';
-  fileName = 'conditional-disable-callback-example';
-
+export class ConditionalDisableCallbackExample extends Documented {
   private readonly formBuilder = inject(FormBuilder);
 
   // @doc-start

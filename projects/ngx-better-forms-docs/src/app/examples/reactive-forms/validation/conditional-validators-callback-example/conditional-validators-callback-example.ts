@@ -11,10 +11,7 @@ import { Documented } from '../../../../core/interface/documented';
   imports: [ExampleCard, FormatErrorsPipe, ReactiveFormsModule],
   templateUrl: './conditional-validators-callback-example.html',
 })
-export class ConditionalValidatorsCallbackExample implements Documented {
-  title = 'Callbacks';
-  fileName = 'conditional-validators-callback-example';
-
+export class ConditionalValidatorsCallbackExample extends Documented {
   private readonly formBuilder = inject(FormBuilder);
 
   // @doc-start

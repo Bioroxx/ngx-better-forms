@@ -12,14 +12,11 @@ export interface FormFields {
 }
 
 @Component({
-  selector: 'app-signal-forms-conditional-validators-basic-example',
+  selector: 'app-signal-forms-conditional-schema-basic-example',
   imports: [ExampleCard, Field, FormatErrorsPipe],
-  templateUrl: './signal-forms-conditional-validators-basic-example.html',
+  templateUrl: './signal-forms-conditional-schema-basic-example.html',
 })
-export class SignalFormsConditionalValidatorsBasicExample implements Documented {
-  title = 'Basic';
-  fileName = 'signal-forms-conditional-validators-basic-example';
-
+export class SignalFormsConditionalSchemaBasicExample extends Documented {
   // @doc-start
   formFields = signal<FormFields>({
     field1: '',

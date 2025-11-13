@@ -11,10 +11,7 @@ import { Documented } from '../../../../core/interface/documented';
   imports: [ExampleCard, FormatErrorsPipe, ReactiveFormsModule],
   templateUrl: './conditional-validators-markasdirty-example.html',
 })
-export class ConditionalValidatorsMarkasdirtyExample implements Documented {
-  title = 'Mark as Dirty';
-  fileName = 'conditional-validators-markasdirty-example';
-
+export class ConditionalValidatorsMarkasdirtyExample extends Documented {
   private readonly formBuilder = inject(FormBuilder);
 
   // @doc-start

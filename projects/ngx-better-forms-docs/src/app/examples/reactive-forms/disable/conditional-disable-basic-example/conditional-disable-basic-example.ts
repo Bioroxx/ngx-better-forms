@@ -10,10 +10,7 @@ import { BetterDisable } from '@ngx-better-forms/reactive';
   imports: [ExampleCard, ReactiveFormsModule],
   templateUrl: './conditional-disable-basic-example.html',
 })
-export class ConditionalDisableBasicExample implements Documented {
-  title = 'Basic';
-  fileName = 'conditional-disable-basic-example';
-
+export class ConditionalDisableBasicExample extends Documented {
   private readonly formBuilder = inject(FormBuilder);
 
   // @doc-start

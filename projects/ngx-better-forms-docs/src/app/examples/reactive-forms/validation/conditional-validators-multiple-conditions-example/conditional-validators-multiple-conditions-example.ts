@@ -11,10 +11,7 @@ import { Documented } from '../../../../core/interface/documented';
   imports: [ExampleCard, FormatErrorsPipe, ReactiveFormsModule],
   templateUrl: './conditional-validators-multiple-conditions-example.html',
 })
-export class ConditionalValidatorsMultipleConditionsExample implements Documented {
-  title = 'Multiple Conditions';
-  fileName = 'conditional-validators-multiple-conditions-example';
-
+export class ConditionalValidatorsMultipleConditionsExample extends Documented {
   private readonly formBuilder = inject(FormBuilder);
 
   // @doc-start

@@ -10,10 +10,7 @@ import { ExampleCard } from '../../../../core/component/example-card/example-car
   imports: [ExampleCard, ReactiveFormsModule],
   templateUrl: './conditional-disable-reset-example.html',
 })
-export class ConditionalDisableResetExample implements Documented {
-  title = 'Reset';
-  fileName = 'conditional-disable-reset-example';
-
+export class ConditionalDisableResetExample extends Documented {
   private readonly formBuilder = inject(FormBuilder);
 
   // @doc-start

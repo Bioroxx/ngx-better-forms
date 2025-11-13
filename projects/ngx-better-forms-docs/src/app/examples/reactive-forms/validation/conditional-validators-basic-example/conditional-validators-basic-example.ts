@@ -12,10 +12,7 @@ import { ExampleCard } from '../../../../core/component/example-card/example-car
   imports: [ReactiveFormsModule, FormatErrorsPipe, ExampleCard],
   templateUrl: './conditional-validators-basic-example.html',
 })
-export class ConditionalValidatorsBasicExample implements Documented {
-  title = 'Basic';
-  fileName = 'conditional-validators-basic-example';
-
+export class ConditionalValidatorsBasicExample extends Documented {
   private readonly formBuilder = inject(FormBuilder);
 
   // @doc-start
