@@ -12,9 +12,9 @@ export class ExampleCard {
   @ContentChild('description') descriptionTemplate!: TemplateRef<any>;
 
   @Input()
-  title!: string;
+  id!: string;
   @Input()
-  exampleName!: string;
+  title!: string;
 
   htmlTabOpen = signal(false);
   tsTabOpen = signal(true);

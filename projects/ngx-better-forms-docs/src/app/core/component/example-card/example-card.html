@@ -1,4 +1,4 @@
-<div [id]="exampleName" class="w-full flex flex-col gap-3 pt-5">
+<div [id]="id" class="w-full flex flex-col gap-3 pt-5">
   <h2>{{ title }}</h2>
   <div class="block">
     <ng-container *ngTemplateOutlet="descriptionTemplate"></ng-container>
@@ -29,8 +29,8 @@
           >TS</a
         >
       </div>
-      <app-code-snippet [hidden]="!htmlTabOpen()" type="HTML" [exampleName]="exampleName"></app-code-snippet>
-      <app-code-snippet [hidden]="!tsTabOpen()" type="TS" [exampleName]="exampleName"></app-code-snippet>
+      <app-code-snippet [hidden]="!htmlTabOpen()" type="HTML" [exampleName]="id" />
+      <app-code-snippet [hidden]="!tsTabOpen()" type="TS" [exampleName]="id" />
     </div>
   </div>
 </div>

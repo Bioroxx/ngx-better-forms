@@ -1,1 +1,8 @@
-<pre #pre class="{{type === 'HTML' ? 'language-html' : 'language-typescript'}}"><code #code></code></pre>
+<pre
+  [hidden]="!isLoaded()"
+  #pre
+  class="{{ type === 'HTML' ? 'language-html' : 'language-typescript' }}"
+><code #code></code></pre>
+@if (!isLoaded()) {
+  <div class="skeleton h-64 w-full"></div>
+}

@@ -15,10 +15,10 @@
     <div #scrollContainer class="drawer-content overflow-y-auto">
       <div class="grid grid-cols-12">
         <div class="col-start-2 col-span-10 pb-24">
-          @for (section of documentation; track section) {
+          @for (section of documentation; track section.sectionId) {
             <section [id]="section.sectionId" class="pt-5">
               <h1>{{ section.sectionTitle }}</h1>
-              @for (docExample of section.docExamples; track docExample) {
+              @for (docExample of section.docExamples; track docExample.id) {
                 <ng-container [documentedComponent]="docExample"></ng-container>
               }
             </section>
@@ -30,12 +30,12 @@
     <div class="drawer-side mt-16 lg:mt-0 overflow-clip">
       <label for="drawer-toggle-input" aria-label="close sidebar" class="drawer-overlay"></label>
       <ul class="menu bg-base-200 min-h-full w-80 p-4 text-lg">
-        @for (section of documentation; track section) {
+        @for (section of documentation; track section.sectionId) {
           <li class="font-bold" (click)="scrollTo(section.sectionId)">
             <a>{{ section.sectionTitle }}</a>
           </li>
-          @for (docExample of section.docExamples; track docExample) {
-            <li (click)="scrollTo(docExample.id)">
+          @for (docExample of section.docExamples; track docExample.id) {
+            <li [ngClass]="{ 'bg-base-300': docExample.id === activeSectionId() }" (click)="scrollTo(docExample.id)">
               <a>{{ docExample.title }}</a>
             </li>
           }

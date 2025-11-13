@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, signal, ViewChild } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ConditionalValidatorsBasicExample } from './examples/reactive-forms/validation/conditional-validators-basic-example/conditional-validators-basic-example';
 import { ConditionalDisableBasicExample } from './examples/reactive-forms/disable/conditional-disable-basic-example/conditional-disable-basic-example';
@@ -12,6 +12,7 @@ import { ConditionalValidatorsPropertyPathExample } from './examples/reactive-fo
 import { DocumentedComponent } from './core/interface/documented';
 import { DocExample } from './core/directives/doc-example.directive';
 import { SignalFormsConditionalSchemaBasicExample } from './examples/signal-forms/validation/signal-forms-conditional-schema-basic-example/signal-forms-conditional-schema-basic-example';
+import { NgClass } from '@angular/common';
 
 export interface DocumentationSection {
   sectionId: string;
@@ -21,7 +22,7 @@ export interface DocumentationSection {
 
 @Component({
   selector: 'app-root',
-  imports: [ReactiveFormsModule, DocExample],
+  imports: [ReactiveFormsModule, DocExample, NgClass],
   templateUrl: './app.html',
 })
 export class App implements AfterViewInit {
@@ -38,8 +39,8 @@ export class App implements AfterViewInit {
           component: ConditionalValidatorsBasicExample,
         },
         {
-          id: 'conditional-validators-conditions-mode-example',
-          title: 'Conditions Mode',
+          id: 'conditional-validators-condition-mode-example',
+          title: 'Condition Mode',
           component: ConditionalValidatorsConditionModeExample,
         },
         {
@@ -69,17 +70,17 @@ export class App implements AfterViewInit {
       sectionTitle: 'Conditional Disable',
       docExamples: [
         {
-          id: 'conditional-validators-basic-example',
+          id: 'conditional-disable-basic-example',
           title: 'Basic',
           component: ConditionalDisableBasicExample,
         },
         {
-          id: 'conditional-validators-reset-example',
+          id: 'conditional-disable-reset-example',
           title: 'Reset',
           component: ConditionalDisableResetExample,
         },
         {
-          id: 'conditional-validators-callback-example',
+          id: 'conditional-disable-callback-example',
           title: 'Callback',
           component: ConditionalDisableCallbackExample,
         },
@@ -98,37 +99,33 @@ export class App implements AfterViewInit {
     },
   ];
 
-  sections = [
-    { id: 'conditional-validators', title: 'Conditional Validators' },
-    { id: 'conditional-disable', title: 'Conditional Disable' },
-    { id: 'signal-forms-conditional-schema', title: 'Conditional Schema' },
-  ];
-
-  activeSection: string | null = null;
+  activeSectionId = signal('');
 
   ngAfterViewInit() {
+    this.activeSectionId.set(this.documentation[0].sectionId);
+
     const container = this.scrollContainer.nativeElement;
     const options = {
       root: container,
-      threshold: 0.1, // trigger when 30% visible
-      //rootMargin: '-200px 0px 0px 0px',
+      threshold: 0.6,
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          this.activeSection = entry.target.id;
-          console.log('active section:', this.activeSection);
+          this.activeSectionId.set(entry.target.id);
         }
       });
     }, options);
 
-    this.sections.forEach((section) => {
-      const el = document.getElementById(section.id);
-      if (el) {
-        observer.observe(el);
-      }
-    });
+    this.documentation
+      .flatMap((d) => d.docExamples)
+      .forEach((doc) => {
+        const el = document.getElementById(doc.id);
+        if (el) {
+          observer.observe(el);
+        }
+      });
   }
 
   scrollTo(sectionId: string): void {
