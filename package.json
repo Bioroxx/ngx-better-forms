@@ -3,14 +3,16 @@
   "type": "module",
   "scripts": {
     "start": "ng serve ngx-better-forms-docs",
-    "test:lib:dev": "ng test ngx-better-forms",
+
+    "build:lib": "npm run script:copy-readme && ng build ngx-better-forms --configuration production",
+    "build:docs": "ng build ngx-better-forms-docs --base-href /ngx-better-forms/ --configuration production",
+    "build:lib:watch": "ng build ngx-better-forms --watch --configuration development",
+
+    "test:lib": "ng test ngx-better-forms",
     "test:lib:ci": "ng test ngx-better-forms --watch=false --browsers=ChromeHeadless --no-progress",
-    "build:lib:ci": "npm run script:copy-readme && ng build ngx-better-forms --configuration production",
-    "test:docs:dev": "ng test ngx-better-forms-docs",
-    "test:docs:ci": "ng test ngx-better-forms-docs --watch=false --browsers=ChromeHeadless --no-progress",
-    "build:docs:ci": "npm run script:extract-code-examples && ng build ngx-better-forms-docs --base-href /ngx-better-forms/ --configuration production",
+
     "script:extract-code-examples": "tsx projects/ngx-better-forms-docs/scripts/extract-code-examples.ts",
-    "script:copy-readme": "tsx scripts/copy.ts README.md projects/ngx-better-forms/README.md"
+    "script:copy-readme": "tsx scripts/copy.ts README.md projects/ngx-better-forms/better-forms/README.md"
   },
   "prettier": {
     "printWidth": 120,
@@ -33,15 +35,14 @@
     "@angular/platform-browser": "^20.3.0",
     "@angular/router": "^20.3.0",
     "@primeuix/themes": "^1.2.5",
+    "tailwindcss": "^4.1.17",
     "@tailwindcss/postcss": "4.1.4",
     "@types/prismjs": "^1.26.5",
     "postcss": "8.5.3",
-    "primeicons": "^7.0.0",
-    "primeng": "^20.3.0",
+    "daisyui": "^5.4.7",
     "prism-material-themes": "^1.0.5",
     "prismjs": "^1.30.0",
     "rxjs": "~7.8.0",
-    "tailwindcss-primeui": "^0.6.1",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
   },

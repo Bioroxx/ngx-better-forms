@@ -1,0 +1,37 @@
+<!-- @documented -->
+<app-example-card [title]="title" [id]="id">
+  <!-- @doc-start -->
+  <form [formGroup]="formGroup" class="flex flex-col gap-3 p-3">
+    <div class="flex flex-col">
+      <label class="mb-2 font-medium" for="field1">Field 1</label>
+      <div class="select">
+        <select formControlName="field1">
+          @for (option of options; track option) {
+            <option [ngValue]="option">{{ option.label }}</option>
+          }
+        </select>
+      </div>
+    </div>
+
+    <div class="flex flex-col">
+      <label class="mb-2 font-medium" for="target">Target Field</label>
+      <input
+        formControlName="target"
+        type="text"
+        class="input"
+        id="target"
+        autocomplete="off"
+        placeholder="This is the target field"
+      />
+      @if (formGroup.controls['target'].errors; as errors) {
+        <small>{{ errors | formatErrors }}</small>
+      }
+    </div>
+  </form>
+  <!-- @doc-end -->
+  <ng-template #description>
+    If the value of the condition form is an object, but the condition should check against a property of that object,
+    the <span class="inline-code">propertyPath</span> to that property can be defined.
+    <br />
+  </ng-template>
+</app-example-card>

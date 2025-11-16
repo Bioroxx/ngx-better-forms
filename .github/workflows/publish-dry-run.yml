@@ -1,0 +1,40 @@
+name: Publish to npm (dry run)
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+permissions:
+  contents: read
+jobs:
+  publish-npm:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Update npm
+        run: npm install -g npm@latest
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build library
+        run: npm run build:lib:ci
+
+      - name: Test
+        run: npm run test:lib:ci
+
+      - name: Publish to npm (dry run)
+        run: npm publish --dry-run
+        working-directory: dist/@ngx-better-forms/better-forms

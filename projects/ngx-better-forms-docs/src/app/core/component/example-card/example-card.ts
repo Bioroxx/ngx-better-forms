@@ -1,20 +1,21 @@
-import { Component, ContentChild, Input, TemplateRef } from '@angular/core';
-import { Panel } from 'primeng/panel';
+import { Component, ContentChild, Input, signal, TemplateRef } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { Tab, TabList, TabPanel, TabPanels, Tabs } from 'primeng/tabs';
 import { CodeSnippet } from '../code-snippet/code-snippet';
-import { NgTemplateOutlet } from '@angular/common';
+import { NgClass, NgTemplateOutlet } from '@angular/common';
 
 @Component({
   selector: 'app-example-card',
-  imports: [Panel, ReactiveFormsModule, Tab, TabList, TabPanel, TabPanels, Tabs, CodeSnippet, NgTemplateOutlet],
+  imports: [ReactiveFormsModule, CodeSnippet, NgTemplateOutlet, NgClass],
   templateUrl: './example-card.html',
 })
 export class ExampleCard {
   @ContentChild('description') descriptionTemplate!: TemplateRef<any>;
 
   @Input()
-  title!: string;
+  id!: string;
   @Input()
-  exampleName!: string;
+  title!: string;
+
+  htmlTabOpen = signal(false);
+  tsTabOpen = signal(true);
 }

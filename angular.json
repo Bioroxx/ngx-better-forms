@@ -5,18 +5,18 @@
   "projects": {
     "ngx-better-forms": {
       "projectType": "library",
-      "root": "projects/ngx-better-forms",
-      "sourceRoot": "projects/ngx-better-forms/src",
+      "root": "projects/ngx-better-forms/better-forms",
+      "sourceRoot": "projects/ngx-better-forms/better-forms",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular/build:ng-packagr",
           "configurations": {
             "production": {
-              "tsConfig": "projects/ngx-better-forms/tsconfig.lib.prod.json"
+              "tsConfig": "projects/ngx-better-forms/better-forms/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/ngx-better-forms/tsconfig.lib.json"
+              "tsConfig": "projects/ngx-better-forms/better-forms/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -24,7 +24,11 @@
         "test": {
           "builder": "@angular/build:karma",
           "options": {
-            "tsConfig": "projects/ngx-better-forms/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/ngx-better-forms/better-forms/tsconfig.spec.json",
             "codeCoverage": true
           }
         }
@@ -34,7 +38,7 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "style": "css"
         }
       },
       "root": "projects/ngx-better-forms-docs",
@@ -49,7 +53,7 @@
               "zone.js"
             ],
             "tsConfig": "projects/ngx-better-forms-docs/tsconfig.app.json",
-            "inlineStyleLanguage": "scss",
+            "inlineStyleLanguage": "css",
             "assets": [
               {
                 "glob": "**/*",
@@ -57,7 +61,7 @@
               }
             ],
             "styles": [
-              "projects/ngx-better-forms-docs/src/styles.scss"
+              "projects/ngx-better-forms-docs/src/styles.css"
             ]
           },
           "configurations": {
@@ -107,7 +111,7 @@
               "zone.js/testing"
             ],
             "tsConfig": "projects/ngx-better-forms-docs/tsconfig.spec.json",
-            "inlineStyleLanguage": "scss",
+            "inlineStyleLanguage": "css",
             "assets": [
               {
                 "glob": "**/*",
@@ -115,7 +119,7 @@
               }
             ],
             "styles": [
-              "projects/ngx-better-forms-docs/src/styles.scss"
+              "projects/ngx-better-forms-docs/src/styles.css"
             ]
           }
         }

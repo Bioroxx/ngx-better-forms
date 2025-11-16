@@ -2,9 +2,8 @@ name: Build and Deploy Docs
 
 on:
   push:
-    tags:
-      - 'v*'
-
+    branches:
+      - main
 permissions:
   contents: write
 
@@ -25,7 +24,7 @@ jobs:
         run: npm ci
 
       - name: Build Angular app
-        run: npm run build:docs:ci
+        run: npm run build:docs
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4

@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, inject, Input, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, inject, Input, signal, ViewChild } from '@angular/core';
 import { SnippetService } from '../../../service/snippet.service';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-typescript';
@@ -18,6 +18,8 @@ export class CodeSnippet implements AfterViewInit {
   @Input()
   exampleName!: string;
 
+  isLoaded = signal(false);
+
   private readonly exampleService = inject(SnippetService);
 
   ngAfterViewInit() {
@@ -32,6 +34,7 @@ export class CodeSnippet implements AfterViewInit {
     if (this.code) {
       const el = this.code.nativeElement;
       el.innerHTML = this.escapeHtml(snippet);
+      this.isLoaded.set(true);
       setTimeout(() => {
         if (this.pre) {
           Prism.highlightElement(this.pre.nativeElement);
