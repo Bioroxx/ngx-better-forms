@@ -5,7 +5,7 @@
     "start": "ng serve ngx-better-forms-docs",
 
     "build:lib": "npm run script:copy-readme && ng build ngx-better-forms --configuration production",
-    "build:docs": "ng build ngx-better-forms-docs --base-href /ngx-better-forms/ --configuration production",
+    "build:docs": "npm run script:extract-code-examples && ng build ngx-better-forms-docs --base-href /ngx-better-forms/ --configuration production",
     "build:lib:watch": "ng build ngx-better-forms --watch --configuration development",
 
     "test:lib": "ng test ngx-better-forms",
