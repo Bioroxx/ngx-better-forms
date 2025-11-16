@@ -1,4 +1,4 @@
-name: Publish to npm (dry run)
+name: CI
 
 on:
   push:
@@ -10,7 +10,7 @@ on:
 permissions:
   contents: read
 jobs:
-  publish-npm:
+  test-build-dry-run:
     runs-on: ubuntu-latest
 
     steps:
@@ -26,14 +26,17 @@ jobs:
       - name: Update npm
         run: npm install -g npm@latest
 
-      - name: Install dependencies
+      - name: Install Dependencies
         run: npm ci
 
-      - name: Test
+      - name: Test Library
         run: npm run test:lib:ci
 
-      - name: Build library
+      - name: Build Library
         run: npm run build:lib
+
+      - name: Build Documentation
+        run: npm run build:docs
 
       - name: Publish to npm (dry run)
         run: npm publish --dry-run
