@@ -3,8 +3,8 @@
 Better, cleaner, and more maintainable reactive form utilities for Angular.
 
 ![status](https://img.shields.io/badge/status-experimental-orange?style=flat-square)
-[![Build](https://github.com/bioroxx/ngx-better-forms/actions/workflows/test-lib.yml/badge.svg)](https://github.com/bioroxx/ngx-better-forms/actions/workflows/test-lib.yml)
-[![npm version](https://img.shields.io/npm/v/ngx-better-forms?logo=npm&style=flat-square)](https://www.npmjs.com/package/ngx-better-forms)
+[![Build](https://github.com/bioroxx/ngx-better-forms/actions/workflows/ci.yml/badge.svg)](https://github.com/bioroxx/ngx-better-forms/actions/workflows/test-lib.yml)
+[![npm version](https://img.shields.io/npm/v/@ngx-better-forms/better-forms?logo=npm&style=flat-square)](https://www.npmjs.com/package/ngx-better-forms)
 [![License](https://img.shields.io/github/license/bioroxx/ngx-better-forms?style=flat-square)](LICENSE)
 
 ---
