@@ -1,0 +1,28 @@
+<form [formGroup]="formGroup" class="flex flex-col gap-3 p-3">
+  <div class="flex flex-col">
+    <label class="mb-2 font-medium" for="field1">Field 1</label>
+    <input
+      formControlName="field1"
+      type="text"
+      class="input"
+      id="field1"
+      autocomplete="off"
+      placeholder="Type 'a' to add validators to the target field and mark it as dirty"
+    />
+  </div>
+
+  <div class="flex flex-col">
+    <label class="mb-2 font-medium" for="target">Target Field</label>
+    <input
+      formControlName="target"
+      type="text"
+      class="input"
+      id="target"
+      autocomplete="off"
+      placeholder="This is the target field"
+    />
+    @if (formGroup.controls['target'].errors; as errors) {
+    <small>{{ errors | formatErrors }}</small>
+    }
+  </div>
+</form>
