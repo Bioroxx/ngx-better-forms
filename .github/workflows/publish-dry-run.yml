@@ -29,11 +29,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build library
-        run: npm run build:lib:ci
-
       - name: Test
         run: npm run test:lib:ci
+
+      - name: Build library
+        run: npm run build:lib
 
       - name: Publish to npm (dry run)
         run: npm publish --dry-run
