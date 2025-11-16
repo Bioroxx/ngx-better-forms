@@ -1,0 +1,35 @@
+<!-- @documented -->
+<app-example-card [title]="title" [id]="id">
+  <!-- @doc-start -->
+  <div class="flex flex-col gap-3 p-3">
+    <div class="flex flex-col">
+      <label class="mb-2 font-medium" for="field1">Field 1</label>
+      <input
+        [field]="signalForm.field1"
+        id="target"
+        class="input"
+        type="text"
+        autocomplete="off"
+        placeholder="Type 'a' to apply validators to the target field"
+      />
+    </div>
+
+    <div class="flex flex-col">
+      <label class="mb-2 font-medium" for="target">Target Field</label>
+      <input
+        [field]="signalForm.target"
+        id="target"
+        class="input"
+        type="text"
+        autocomplete="off"
+        placeholder="This is the target field"
+      />
+      <small>{{ signalForm.target().errors() | formatErrors }}</small>
+    </div>
+  </div>
+  <!-- @doc-end -->
+  <ng-template #description>
+    The same conditional approach can also be applied to Angular's signal forms. Instead of validators, a
+    <span class="inline-code">Schema</span> will be applied to the form when the conditions match.
+  </ng-template>
+</app-example-card>

@@ -12,6 +12,9 @@ import { ConditionalValidatorsPropertyPathExample } from './examples/reactive-fo
 import { DocumentedComponent } from './core/interface/documented';
 import { DocExample } from './core/directives/doc-example.directive';
 import { NgClass } from '@angular/common';
+import {
+  SignalFormsConditionalSchemaBasicExample
+} from './examples/signal-forms/validation/signal-forms-conditional-schema-basic-example/signal-forms-conditional-schema-basic-example';
 
 export interface DocumentationSection {
   sectionId: string;
@@ -84,7 +87,18 @@ export class App implements AfterViewInit {
           component: ConditionalDisableCallbackExample,
         },
       ],
-    }
+    },
+    {
+      sectionId: 'conditional-schema',
+      sectionTitle: 'Conditional Schema',
+      docExamples: [
+        {
+          id: 'signal-forms-conditional-schema-basic-example',
+          title: 'Basic',
+          component: SignalFormsConditionalSchemaBasicExample,
+        },
+      ],
+    },
   ];
 
   activeSectionId = signal('');
