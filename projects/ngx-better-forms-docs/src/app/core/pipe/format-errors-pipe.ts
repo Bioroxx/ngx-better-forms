@@ -1,11 +1,13 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { ValidationErrors } from '@angular/forms';
 
 @Pipe({
   name: 'formatErrors',
 })
 export class FormatErrorsPipe implements PipeTransform {
-  transform(errors: ValidationErrors): string {
+  transform(errors?: unknown): string {
+    if (!errors || (Array.isArray(errors) && !errors.length)) {
+      return '';
+    }
     return 'errors: ' + JSON.stringify(errors);
   }
 }

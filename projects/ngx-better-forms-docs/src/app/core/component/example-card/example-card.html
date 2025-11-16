@@ -1,29 +1,36 @@
-<div [id]="exampleName" class="w-full flex flex-col gap-3 pt-5">
+<div [id]="id" class="w-full flex flex-col gap-3 pt-5">
   <h2>{{ title }}</h2>
   <div class="block">
     <ng-container *ngTemplateOutlet="descriptionTemplate"></ng-container>
   </div>
-  <p-panel header="Example">
-    <ng-content></ng-content>
-  </p-panel>
-  <p-panel header="Code">
-    <p-tabs value="1">
-      <p-tablist>
-        <p-tab value="0">HTML</p-tab>
-        <p-tab value="1">TS</p-tab>
-      </p-tablist>
-      <p-tabpanels>
-        <p-tabpanel value="0">
-          <p class="m-0">
-            <app-code-snippet type="HTML" [exampleName]="exampleName"></app-code-snippet>
-          </p>
-        </p-tabpanel>
-        <p-tabpanel value="1">
-          <p class="m-0">
-            <app-code-snippet type="TS" [exampleName]="exampleName"></app-code-snippet>
-          </p>
-        </p-tabpanel>
-      </p-tabpanels>
-    </p-tabs>
-  </p-panel>
+  <div class="card panel bg-base-100">
+    <div class="card-body">
+      <h3 class="card-title">Example</h3>
+      <ng-content></ng-content>
+    </div>
+  </div>
+
+  <div class="card panel bg-base-100">
+    <div class="card-body">
+      <h3 class="card-title">Code</h3>
+      <div role="tablist" class="tabs tabs-border">
+        <a
+          role="tab"
+          [ngClass]="{ 'tab-active': htmlTabOpen() }"
+          class="tab"
+          (click)="tsTabOpen.set(false); htmlTabOpen.set(true)"
+          >HTML</a
+        >
+        <a
+          role="tab"
+          [ngClass]="{ 'tab-active': tsTabOpen() }"
+          class="tab tab-active"
+          (click)="htmlTabOpen.set(false); tsTabOpen.set(true)"
+          >TS</a
+        >
+      </div>
+      <app-code-snippet [hidden]="!htmlTabOpen()" type="HTML" [exampleName]="id" />
+      <app-code-snippet [hidden]="!tsTabOpen()" type="TS" [exampleName]="id" />
+    </div>
+  </div>
 </div>

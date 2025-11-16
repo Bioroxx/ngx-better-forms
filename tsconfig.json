@@ -1,45 +1,43 @@
-/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
-/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": {
+      "@ngx-better-forms/better-forms/*": [
+        "./projects/ngx-better-forms/better-forms/*"
+      ],
+      "@ngx-better-forms/better-forms": [
+        "./projects/ngx-better-forms/better-forms"
+      ],
+      "@ngx-better-forms/better-forms/core/testing": [
+        "./projects/ngx-better-forms/better-forms/core/src/testing"
+      ]
+    },
+    "outDir": "./dist/out-tsc",
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
-    "paths": {
-      "ngx-better-forms": [
-        "./dist/ngx-better-forms"
-      ]
-    },
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
-    "isolatedModules": true,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "declaration": false,
     "experimentalDecorators": true,
+    "moduleResolution": "bundler",
     "importHelpers": true,
     "target": "ES2022",
-    "module": "preserve"
+    "module": "ES2022",
+    "useDefineForClassFields": false,
+    "lib": [
+      "ES2022",
+      "dom"
+    ]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "typeCheckHostBindings": true,
-    "strictTemplates": true,
-  },
-  "files": [],
-  "references": [
-    {
-      "path": "./projects/ngx-better-forms/tsconfig.lib.json"
-    },
-    {
-      "path": "./projects/ngx-better-forms/tsconfig.spec.json"
-    },
-    {
-      "path": "./projects/ngx-better-forms-docs/tsconfig.app.json"
-    },
-    {
-      "path": "./projects/ngx-better-forms-docs/tsconfig.spec.json"
-    }
-  ]
+    "strictTemplates": true
+  }
 }

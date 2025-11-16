@@ -24,9 +24,8 @@ Better, cleaner, and more maintainable reactive form utilities for Angular.
 ## 📦 Installation
 
 ```bash
-npm install ngx-better-forms
+npm install @ngx-better-forms/better-forms
 ```
-
 
 ## 💡 Example Usage
 
@@ -84,7 +83,6 @@ formGroup = this.formBuilder.group(
   },
 );
 ```
-
 > ⚠️ **Disclaimer:**  
 > This library is currently in very early development.  
 > Features, APIs, and behavior may change without notice — use with caution, but be inspired. ✨

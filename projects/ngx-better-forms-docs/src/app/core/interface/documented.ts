@@ -1,4 +1,12 @@
-export interface Documented {
+import { Type } from '@angular/core';
+
+export class Documented {
+  id = '';
+  title = '';
+}
+
+export interface DocumentedComponent {
+  id: string;
   title: string;
-  fileName: string;
+  component: Type<Documented>;
 }

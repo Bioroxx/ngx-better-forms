@@ -1,0 +1,24 @@
+{
+  "name": "@ngx-better-forms/better-forms",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "An Angular library that provides better form utilities and conditional validators for cleaner, more maintainable forms.",
+  "keywords": ["angular", "reactive-forms", "validation", "validators", "dynamic", "conditional", "ngx"],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "url": "git+https://github.com/Bioroxx/ngx-better-forms.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Bioroxx/ngx-better-forms/issues"
+  },
+  "homepage": "https://bioroxx.github.io/ngx-better-forms",
+  "peerDependencies": {
+    "@angular/forms": "^20.3.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}
