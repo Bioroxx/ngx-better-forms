@@ -4,7 +4,7 @@ Better, cleaner, and more maintainable reactive form utilities for Angular.
 
 ![status](https://img.shields.io/badge/status-experimental-orange?style=flat-square)
 [![Build](https://github.com/bioroxx/ngx-better-forms/actions/workflows/ci.yml/badge.svg)](https://github.com/bioroxx/ngx-better-forms/actions/workflows/test-lib.yml)
-[![npm version](https://img.shields.io/npm/v/@ngx-better-forms/better-forms?logo=npm&style=flat-square)](https://www.npmjs.com/package/ngx-better-forms)
+[![npm version](https://img.shields.io/npm/v/@ngx-better-forms/better-forms?logo=npm&style=flat-square)](https://www.npmjs.com/package/@ngx-better-forms/better-forms)
 [![License](https://img.shields.io/github/license/bioroxx/ngx-better-forms?style=flat-square)](LICENSE)
 
 ---
@@ -13,13 +13,11 @@ Better, cleaner, and more maintainable reactive form utilities for Angular.
 
 - 🧩 Conditional validators for complex reactive forms
 - ⚡ Utility methods to simplify control management
-- 🧪 100% unit tested
-
+- 🧪 >95% unit tested
 
 ## 📘 Documentation
 
 [https://bioroxx.github.io/ngx-better-forms](https://bioroxx.github.io/ngx-better-forms)
-
 
 ## 📦 Installation
 
@@ -83,6 +81,7 @@ formGroup = this.formBuilder.group(
   },
 );
 ```
+
 > ⚠️ **Disclaimer:**  
 > This library is currently in very early development.  
 > Features, APIs, and behavior may change without notice — use with caution, but be inspired. ✨
