@@ -1,25 +1,24 @@
 // @documented
 import { Component, inject } from '@angular/core';
-import { ExampleCard } from '../../../../core/component/example-card/example-card';
-import { FormatErrorsPipe } from '../../../../core/pipe/format-errors-pipe';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
-import { BetterValidation } from '@ngx-better-forms/better-forms/reactive';
+import { BetterFormControl, BetterValidation } from '@ngx-better-forms/better-forms';
+import { FormatErrorsPipe } from '../../../../core/pipe/format-errors-pipe';
 import { Documented } from '../../../../core/interface/documented';
-import { NgClass } from '@angular/common';
+import { ExampleCard } from '../../../../core/component/example-card/example-card';
 
 @Component({
-  selector: 'app-conditional-validators-markasdirty-example',
-  imports: [ExampleCard, FormatErrorsPipe, ReactiveFormsModule, NgClass],
-  templateUrl: './conditional-validators-markasdirty-example.html',
+  selector: 'app-better-form-control-required-example',
+  imports: [ReactiveFormsModule, FormatErrorsPipe, ExampleCard],
+  templateUrl: './better-form-control-required-example.html',
 })
-export class ConditionalValidatorsMarkasdirtyExample extends Documented {
+export class BetterFormControlRequiredExample extends Documented {
   private readonly formBuilder = inject(FormBuilder);
 
   // @doc-start
   formGroup = this.formBuilder.group(
     {
       field1: new FormControl<string>(''),
-      target: new FormControl<string>(''),
+      target: new BetterFormControl<string>(''),
     },
     {
       validators: [
@@ -29,15 +28,16 @@ export class ConditionalValidatorsMarkasdirtyExample extends Documented {
           conditions: [
             {
               controlPath: 'field1',
-              testValues: ['a'],
+              testValues: ['a', 'b'],
             },
           ],
-          options: {
-            markAsDirty: true,
-          },
         }),
       ],
     },
   );
   // @doc-end
+
+  get targetControl(): BetterFormControl<string> {
+    return this.formGroup.controls.target as BetterFormControl<string>;
+  }
 }

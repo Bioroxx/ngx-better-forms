@@ -1,17 +1,38 @@
 import { AfterViewInit, Component, ElementRef, signal, ViewChild } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ConditionalValidatorsBasicExample } from './examples/reactive-forms/validation/conditional-validators-basic-example/conditional-validators-basic-example';
-import { ConditionalDisableBasicExample } from './examples/reactive-forms/disable/conditional-disable-basic-example/conditional-disable-basic-example';
-import { ConditionalValidatorsMarkasdirtyExample } from './examples/reactive-forms/validation/conditional-validators-markasdirty-example/conditional-validators-markasdirty-example';
-import { ConditionalDisableResetExample } from './examples/reactive-forms/disable/conditional-disable-reset-example/conditional-disable-reset-example';
-import { ConditionalValidatorsMultipleConditionsExample } from './examples/reactive-forms/validation/conditional-validators-multiple-conditions-example/conditional-validators-multiple-conditions-example';
-import { ConditionalDisableCallbackExample } from './examples/reactive-forms/disable/conditional-disable-callback-example/conditional-disable-callback-example';
-import { ConditionalValidatorsCallbackExample } from './examples/reactive-forms/validation/conditional-validators-callback-example/conditional-validators-callback-example';
-import { ConditionalValidatorsConditionModeExample } from './examples/reactive-forms/validation/conditional-validators-condition-mode-example/conditional-validators-condition-mode-example';
-import { ConditionalValidatorsPropertyPathExample } from './examples/reactive-forms/validation/conditional-validators-property-path-example/conditional-validators-property-path-example';
+import {
+  ConditionalValidatorsBasicExample
+} from './examples/reactive-forms/validation/conditional-validators-basic-example/conditional-validators-basic-example';
+import {
+  ConditionalDisableBasicExample
+} from './examples/reactive-forms/disable/conditional-disable-basic-example/conditional-disable-basic-example';
+import {
+  ConditionalValidatorsMarkasdirtyExample
+} from './examples/reactive-forms/validation/conditional-validators-markasdirty-example/conditional-validators-markasdirty-example';
+import {
+  ConditionalDisableResetExample
+} from './examples/reactive-forms/disable/conditional-disable-reset-example/conditional-disable-reset-example';
+import {
+  ConditionalValidatorsMultipleConditionsExample
+} from './examples/reactive-forms/validation/conditional-validators-multiple-conditions-example/conditional-validators-multiple-conditions-example';
+import {
+  ConditionalDisableCallbackExample
+} from './examples/reactive-forms/disable/conditional-disable-callback-example/conditional-disable-callback-example';
+import {
+  ConditionalValidatorsCallbackExample
+} from './examples/reactive-forms/validation/conditional-validators-callback-example/conditional-validators-callback-example';
+import {
+  ConditionalValidatorsConditionModeExample
+} from './examples/reactive-forms/validation/conditional-validators-condition-mode-example/conditional-validators-condition-mode-example';
+import {
+  ConditionalValidatorsPropertyPathExample
+} from './examples/reactive-forms/validation/conditional-validators-property-path-example/conditional-validators-property-path-example';
 import { DocumentedComponent } from './core/interface/documented';
 import { DocExample } from './core/directives/doc-example.directive';
 import { NgClass } from '@angular/common';
+import {
+  BetterFormControlRequiredExample
+} from './examples/reactive-forms/form-control/better-form-control-required-example/better-form-control-required-example';
 
 export interface DocumentationSection {
   sectionId: string;
@@ -84,7 +105,18 @@ export class App implements AfterViewInit {
           component: ConditionalDisableCallbackExample,
         },
       ],
-    }
+    },
+    {
+      sectionId: 'better-form-control',
+      sectionTitle: 'Validator Aware Form Control',
+      docExamples: [
+        {
+          id: 'better-form-control-required-example',
+          title: 'isRequired',
+          component: BetterFormControlRequiredExample,
+        },
+      ],
+    },
   ];
 
   activeSectionId = signal('');
