@@ -18,6 +18,30 @@ export function runConditionalValidatorTests() {
     });
 
     describe('Single Condition', () => {
+      describe('FormGroup', () => {
+        it('should set formGroup errors based on control errors', () => {
+          form.addValidators(
+            BetterValidation.conditionalValidators({
+              targetControlPath: 'targetControl',
+              targetValidators: [Validators.required],
+              conditions: [
+                {
+                  controlPath: 'conditionControl1',
+                  testValues: [1],
+                },
+              ],
+            }),
+          );
+          form.updateValueAndValidity();
+          expect(hasRequiredError(targetControl())).toBeFalse();
+          conditionControl1().setValue(1);
+          expect(hasRequiredError(targetControl())).toBeTrue();
+          expect(form.invalid).toBeTrue();
+          conditionControl1().setValue(0);
+          expect(hasRequiredError(targetControl())).toBeFalse();
+          expect(form.invalid).toBeFalse();
+        });
+      });
       describe('Mark as Dirty', () => {
         it('should mark target control as dirty when option enabled and validators are applied', () => {
           expect(hasRequiredError(targetControl())).toBeFalse();
