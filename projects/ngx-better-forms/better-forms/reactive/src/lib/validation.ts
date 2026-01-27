@@ -51,6 +51,7 @@ export class BetterValidation {
           params.options.removeValidatorsCallback();
         }
         validatorAdded = false;
+        return targetControl.errors;
       }
       return control.errors;
     };
